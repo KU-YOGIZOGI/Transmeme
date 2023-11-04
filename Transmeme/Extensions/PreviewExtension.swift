@@ -14,17 +14,6 @@ import Foundation
  여러 파일에 작성하면 충돌이 생기기 때문에,
  다른 파일을 작업하기 시작했다면 기존의 파일에서는 삭제 후 새로 추가한다.
  그리고 마지막으로 PR 또는 merge하기 전에 코드를 삭제해 다른 사람이 작업할 때 오류가 나지 않도록 한다.
- 
- #if canImport(SwiftUI) && DEBUG
- import SwiftUI
-
- struct ViewControllerPreview: PreviewProvider {
-     static var previews: some View {
-         ViewController().showPreview(.iPhone14Pro)
-     }
- }
- #endif
- 
  */
 
 enum DeviceType {
