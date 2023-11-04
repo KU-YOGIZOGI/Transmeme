@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A70BE222AF66456008BC964 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE212AF66456008BC964 /* UIColor+Extension.swift */; };
+		7A70BE242AF6646F008BC964 /* UITextField+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */; };
+		7A70BE262AF6648D008BC964 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE252AF6648D008BC964 /* InsetTextField.swift */; };
+		7A70BE282AF664AB008BC964 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE272AF664AB008BC964 /* UILabel+Extension.swift */; };
 		7A84B48A2AB7E97700845EF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B4892AB7E97700845EF4 /* AppDelegate.swift */; };
 		7A84B48C2AB7E97700845EF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */; };
 		7A84B48E2AB7E97700845EF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B48D2AB7E97700845EF4 /* ViewController.swift */; };
@@ -17,6 +21,10 @@
 
 /* Begin PBXFileReference section */
 		6E5C463761372ABDE0B26B49 /* Pods_Transmeme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transmeme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A70BE212AF66456008BC964 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extenstion.swift"; sourceTree = "<group>"; };
+		7A70BE252AF6648D008BC964 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
+		7A70BE272AF664AB008BC964 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		7A84B4862AB7E97700845EF4 /* Transmeme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transmeme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A84B4892AB7E97700845EF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,8 +54,18 @@
 				D5BBB27B9E9712BC4F80CFDF /* Pods-Transmeme.debug.xcconfig */,
 				DE1D7502FD5955E34857150E /* Pods-Transmeme.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7A70BE202AF66438008BC964 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7A70BE212AF66456008BC964 /* UIColor+Extension.swift */,
+				7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */,
+				7A70BE252AF6648D008BC964 /* InsetTextField.swift */,
+				7A70BE272AF664AB008BC964 /* UILabel+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7A84B47D2AB7E97700845EF4 = {
@@ -74,6 +92,7 @@
 				7A84B4892AB7E97700845EF4 /* AppDelegate.swift */,
 				7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */,
 				7A84B48D2AB7E97700845EF4 /* ViewController.swift */,
+				7A70BE202AF66438008BC964 /* Extensions */,
 				7A84B4922AB7E97800845EF4 /* Assets.xcassets */,
 				7A84B4942AB7E97800845EF4 /* LaunchScreen.storyboard */,
 				7A84B4972AB7E97800845EF4 /* Info.plist */,
@@ -204,8 +223,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A84B48E2AB7E97700845EF4 /* ViewController.swift in Sources */,
+				7A70BE242AF6646F008BC964 /* UITextField+Extenstion.swift in Sources */,
 				7A84B48A2AB7E97700845EF4 /* AppDelegate.swift in Sources */,
+				7A70BE282AF664AB008BC964 /* UILabel+Extension.swift in Sources */,
 				7A84B48C2AB7E97700845EF4 /* SceneDelegate.swift in Sources */,
+				7A70BE222AF66456008BC964 /* UIColor+Extension.swift in Sources */,
+				7A70BE262AF6648D008BC964 /* InsetTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,8 +372,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Transmeme/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -378,8 +400,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Transmeme/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
