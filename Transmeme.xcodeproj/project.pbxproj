@@ -12,12 +12,12 @@
 		7A70BE242AF6646F008BC964 /* UITextField+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */; };
 		7A70BE262AF6648D008BC964 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE252AF6648D008BC964 /* InsetTextField.swift */; };
 		7A70BE282AF664AB008BC964 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE272AF664AB008BC964 /* UILabel+Extension.swift */; };
+		1A7450062AF66B39007B22B2 /* DicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7450052AF66B39007B22B2 /* DicViewController.swift */; };
 		7A84B48A2AB7E97700845EF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B4892AB7E97700845EF4 /* AppDelegate.swift */; };
 		7A84B48C2AB7E97700845EF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */; };
 		7A84B48E2AB7E97700845EF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B48D2AB7E97700845EF4 /* ViewController.swift */; };
 		7A84B4932AB7E97800845EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A84B4922AB7E97800845EF4 /* Assets.xcassets */; };
 		7A84B4962AB7E97800845EF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A84B4942AB7E97800845EF4 /* LaunchScreen.storyboard */; };
-		FEC04116C7101A6A91B14404 /* Pods_Transmeme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5C463761372ABDE0B26B49 /* Pods_Transmeme.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
