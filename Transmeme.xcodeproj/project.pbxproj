@@ -8,25 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		1A7450042AF669DF007B22B2 /* PreviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7450032AF669DF007B22B2 /* PreviewExtension.swift */; };
+		22FB2A22C954D25CD4858BD0 /* Pods_Transmeme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335BF7A96AE9446EAEADF384 /* Pods_Transmeme.framework */; };
 		7A70BE222AF66456008BC964 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE212AF66456008BC964 /* UIColor+Extension.swift */; };
 		7A70BE242AF6646F008BC964 /* UITextField+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */; };
 		7A70BE262AF6648D008BC964 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE252AF6648D008BC964 /* InsetTextField.swift */; };
 		7A70BE282AF664AB008BC964 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE272AF664AB008BC964 /* UILabel+Extension.swift */; };
+		7A70BE302AF67369008BC964 /* TransViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE2F2AF67369008BC964 /* TransViewController.swift */; };
+		7A70BE372AF90D88008BC964 /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A70BE342AF90D88008BC964 /* GmarketSansBold.otf */; };
+		7A70BE382AF90D88008BC964 /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A70BE352AF90D88008BC964 /* GmarketSansLight.otf */; };
+		7A70BE392AF90D88008BC964 /* GmarketSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A70BE362AF90D88008BC964 /* GmarketSansMedium.otf */; };
 		7A84B48A2AB7E97700845EF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B4892AB7E97700845EF4 /* AppDelegate.swift */; };
 		7A84B48C2AB7E97700845EF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */; };
 		7A84B48E2AB7E97700845EF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B48D2AB7E97700845EF4 /* ViewController.swift */; };
 		7A84B4932AB7E97800845EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A84B4922AB7E97800845EF4 /* Assets.xcassets */; };
 		7A84B4962AB7E97800845EF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A84B4942AB7E97800845EF4 /* LaunchScreen.storyboard */; };
-		FEC04116C7101A6A91B14404 /* Pods_Transmeme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E5C463761372ABDE0B26B49 /* Pods_Transmeme.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A7450032AF669DF007B22B2 /* PreviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewExtension.swift; sourceTree = "<group>"; };
-		6E5C463761372ABDE0B26B49 /* Pods_Transmeme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transmeme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F01655D1E0E5FFC897B50AC /* Pods-Transmeme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmeme.release.xcconfig"; path = "Target Support Files/Pods-Transmeme/Pods-Transmeme.release.xcconfig"; sourceTree = "<group>"; };
+		335BF7A96AE9446EAEADF384 /* Pods_Transmeme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transmeme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E2F4F976D2DA6838BEF1807 /* Pods-Transmeme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmeme.debug.xcconfig"; path = "Target Support Files/Pods-Transmeme/Pods-Transmeme.debug.xcconfig"; sourceTree = "<group>"; };
 		7A70BE212AF66456008BC964 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extenstion.swift"; sourceTree = "<group>"; };
 		7A70BE252AF6648D008BC964 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		7A70BE272AF664AB008BC964 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		7A70BE2F2AF67369008BC964 /* TransViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransViewController.swift; sourceTree = "<group>"; };
+		7A70BE342AF90D88008BC964 /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
+		7A70BE352AF90D88008BC964 /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansLight.otf; sourceTree = "<group>"; };
+		7A70BE362AF90D88008BC964 /* GmarketSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansMedium.otf; sourceTree = "<group>"; };
 		7A84B4862AB7E97700845EF4 /* Transmeme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transmeme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A84B4892AB7E97700845EF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,8 +44,6 @@
 		7A84B4922AB7E97800845EF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A84B4952AB7E97800845EF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A84B4972AB7E97800845EF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D5BBB27B9E9712BC4F80CFDF /* Pods-Transmeme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmeme.debug.xcconfig"; path = "Target Support Files/Pods-Transmeme/Pods-Transmeme.debug.xcconfig"; sourceTree = "<group>"; };
-		DE1D7502FD5955E34857150E /* Pods-Transmeme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmeme.release.xcconfig"; path = "Target Support Files/Pods-Transmeme/Pods-Transmeme.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,18 +51,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEC04116C7101A6A91B14404 /* Pods_Transmeme.framework in Frameworks */,
+				22FB2A22C954D25CD4858BD0 /* Pods_Transmeme.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E6DAC4F43EB678230C66A3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				335BF7A96AE9446EAEADF384 /* Pods_Transmeme.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7A3AE934AC53726F9B094543 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D5BBB27B9E9712BC4F80CFDF /* Pods-Transmeme.debug.xcconfig */,
-				DE1D7502FD5955E34857150E /* Pods-Transmeme.release.xcconfig */,
+				5E2F4F976D2DA6838BEF1807 /* Pods-Transmeme.debug.xcconfig */,
+				2F01655D1E0E5FFC897B50AC /* Pods-Transmeme.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -71,13 +87,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7A70BE332AF90D6B008BC964 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7A70BE342AF90D88008BC964 /* GmarketSansBold.otf */,
+				7A70BE352AF90D88008BC964 /* GmarketSansLight.otf */,
+				7A70BE362AF90D88008BC964 /* GmarketSansMedium.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		7A84B47D2AB7E97700845EF4 = {
 			isa = PBXGroup;
 			children = (
 				7A84B4882AB7E97700845EF4 /* Transmeme */,
 				7A84B4872AB7E97700845EF4 /* Products */,
 				7A3AE934AC53726F9B094543 /* Pods */,
-				D720440E80DCEBB13956169A /* Frameworks */,
+				3E6DAC4F43EB678230C66A3F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,23 +118,17 @@
 		7A84B4882AB7E97700845EF4 /* Transmeme */ = {
 			isa = PBXGroup;
 			children = (
+				7A70BE332AF90D6B008BC964 /* Fonts */,
 				7A84B4892AB7E97700845EF4 /* AppDelegate.swift */,
 				7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */,
 				7A84B48D2AB7E97700845EF4 /* ViewController.swift */,
+				7A70BE2F2AF67369008BC964 /* TransViewController.swift */,
 				7A70BE202AF66438008BC964 /* Extensions */,
 				7A84B4922AB7E97800845EF4 /* Assets.xcassets */,
 				7A84B4942AB7E97800845EF4 /* LaunchScreen.storyboard */,
 				7A84B4972AB7E97800845EF4 /* Info.plist */,
 			);
 			path = Transmeme;
-			sourceTree = "<group>";
-		};
-		D720440E80DCEBB13956169A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6E5C463761372ABDE0B26B49 /* Pods_Transmeme.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,11 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A84B49A2AB7E97800845EF4 /* Build configuration list for PBXNativeTarget "Transmeme" */;
 			buildPhases = (
-				F4251AE36320045B47FE1CA0 /* [CP] Check Pods Manifest.lock */,
+				A48A774D46D8C7E155557410 /* [CP] Check Pods Manifest.lock */,
 				7A84B4822AB7E97700845EF4 /* Sources */,
 				7A84B4832AB7E97700845EF4 /* Frameworks */,
 				7A84B4842AB7E97700845EF4 /* Resources */,
-				B205E927149106CD3141E0BC /* [CP] Embed Pods Frameworks */,
+				375F6F68140148F54EE6F890 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,14 +192,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A84B4962AB7E97800845EF4 /* LaunchScreen.storyboard in Resources */,
+				7A70BE372AF90D88008BC964 /* GmarketSansBold.otf in Resources */,
 				7A84B4932AB7E97800845EF4 /* Assets.xcassets in Resources */,
+				7A70BE382AF90D88008BC964 /* GmarketSansLight.otf in Resources */,
+				7A70BE392AF90D88008BC964 /* GmarketSansMedium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B205E927149106CD3141E0BC /* [CP] Embed Pods Frameworks */ = {
+		375F6F68140148F54EE6F890 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,7 +219,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Transmeme/Pods-Transmeme-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F4251AE36320045B47FE1CA0 /* [CP] Check Pods Manifest.lock */ = {
+		A48A774D46D8C7E155557410 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -230,6 +253,7 @@
 				7A70BE242AF6646F008BC964 /* UITextField+Extenstion.swift in Sources */,
 				7A84B48A2AB7E97700845EF4 /* AppDelegate.swift in Sources */,
 				7A70BE282AF664AB008BC964 /* UILabel+Extension.swift in Sources */,
+				7A70BE302AF67369008BC964 /* TransViewController.swift in Sources */,
 				7A84B48C2AB7E97700845EF4 /* SceneDelegate.swift in Sources */,
 				7A70BE222AF66456008BC964 /* UIColor+Extension.swift in Sources */,
 				7A70BE262AF6648D008BC964 /* InsetTextField.swift in Sources */,
@@ -366,7 +390,7 @@
 		};
 		7A84B49B2AB7E97800845EF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5BBB27B9E9712BC4F80CFDF /* Pods-Transmeme.debug.xcconfig */;
+			baseConfigurationReference = 5E2F4F976D2DA6838BEF1807 /* Pods-Transmeme.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -394,7 +418,7 @@
 		};
 		7A84B49C2AB7E97800845EF4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE1D7502FD5955E34857150E /* Pods-Transmeme.release.xcconfig */;
+			baseConfigurationReference = 2F01655D1E0E5FFC897B50AC /* Pods-Transmeme.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
