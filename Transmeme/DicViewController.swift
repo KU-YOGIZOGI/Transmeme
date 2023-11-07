@@ -17,6 +17,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     let topLabel = UILabel().then{
         $0.text = "[세대별 도감]"
         $0.textColor = UIColor.black
+        $0.font = UIFont(name: "GmarketSansMedium", size: 25)
         $0.numberOfLines = 0
     }
     let searchImage = UIImageView().then {
@@ -43,6 +44,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     let generationLabel = UILabel().then {
         $0.text = "전체"
         $0.textColor = UIColor.black
+        $0.font = UIFont(name: "GmarketSansMedium", size: 25)
         $0.numberOfLines = 0
     }
     let verticalLine = UIImageView().then {
@@ -61,16 +63,19 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     let titleLabel = UILabel().then {
         $0.text = "1. 안습"
         $0.textColor = UIColor.black
+        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
         $0.numberOfLines = 1
     }
     let meanLabel = UILabel().then {
         $0.text = ": 안타깝거나 불쌍해 눈물이 남."
         $0.textColor = UIColor.black
+        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
         $0.numberOfLines = 1
     }
     let exLabel = UILabel().then {
         $0.text = "ex. 이번 학기 학점 안습이네. 정말 안타깝다."
-        $0.textColor = UIColor.black
+        $0.textColor = UIColor.gray
+        $0.font = UIFont(name: "GmarketSansMedium", size: 14)
         $0.numberOfLines = 0
     }
     let dicstackView = UIStackView().then {
@@ -79,6 +84,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         $0.alignment = .leading
         $0.spacing = 10
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -105,12 +111,13 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         generationButton.addTarget(self, action: #selector(toggleDropdown), for: .touchUpInside)
     }
     
+    // constraints
     func applyConstraintsToTopSection() {
         let safeArea = view.safeAreaLayoutGuide
     
         topLabel.snp.makeConstraints { make in
             make.top.equalTo(safeArea.snp.top).offset(11)
-            make.leading.equalTo(safeArea.snp.leading).offset(142)
+            make.centerX.equalTo(safeArea)
         }
         searchImage.snp.makeConstraints { make in
             make.width.equalTo(358)
@@ -165,9 +172,9 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         verticalLine.snp.makeConstraints { make in
             make.width.equalTo(1)
-            make.height.equalTo(499)
             make.top.equalTo(grayLine.snp.bottom).offset(15)
             make.leading.equalTo(safeArea.snp.leading).offset(84)
+            make.bottom.equalTo(safeArea)
         }
         horizontalLine.snp.makeConstraints { make in
             make.width.equalTo(343)
@@ -178,6 +185,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
+    // filter dropdown
     func setupDropdownTableView() {
         dropdownTableView.isHidden = true
         dropdownTableView.delegate = self
@@ -215,47 +223,47 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             self.view.layoutIfNeeded()
         }
     }
-        
+   
+    // dic stackview
     func createHorizontalStackView() -> UIStackView {
         let titleLabel = UILabel().then {
             $0.text = "1. 안습"
             $0.textColor = UIColor.black
+            $0.font = UIFont(name: "GmarketSansMedium", size: 15)
             $0.numberOfLines = 1
         }
         let meanLabel = UILabel().then {
             $0.text = ": 안타깝거나 불쌍해 눈물이 남."
             $0.textColor = UIColor.black
+            $0.font = UIFont(name: "GmarketSansMedium", size: 15)
             $0.numberOfLines = 1
         }
         let exLabel = UILabel().then {
             $0.text = "ex. 이번 학기 학점 안습이네. 정말 안타깝다."
-            $0.textColor = UIColor.black
+            $0.font = UIFont(name: "GmarketSansMedium", size: 14)
+            $0.textColor = UIColor.gray
             $0.numberOfLines = 0
         }
         let bookmarkButton = UIButton().then {
             $0.setImage(UIImage(named: "bookMark"), for: .normal)
         }
-
         let verticalStackView = UIStackView(arrangedSubviews: [titleLabel, meanLabel, exLabel]).then {
             $0.axis = .vertical
             $0.spacing = 6
             $0.alignment = .leading
             $0.distribution = .equalSpacing
         }
-
         let horizontalStackView = UIStackView(arrangedSubviews: [bookmarkButton, verticalStackView]).then {
             $0.axis = .horizontal
             $0.spacing = 28
             $0.alignment = .top
             $0.distribution = .fill
         }
-
         bookmarkButton.snp.makeConstraints { make in
             make.width.equalTo(16)
             make.height.equalTo(20)
             make.leading.equalTo(horizontalStackView.snp.leading).offset(15)
         }
-
         verticalStackView.snp.makeConstraints { make in
             make.leading.equalTo(bookmarkButton.snp.trailing).offset(28)
             make.top.equalTo(bookmarkButton.snp.top)
@@ -263,13 +271,13 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return horizontalStackView
     }
     
+    // dic scrollview
     func setupScrollViewAndStackViews() {
         let safeArea = view.safeAreaLayoutGuide
         scrollView.alwaysBounceVertical = true
         scrollView.showsVerticalScrollIndicator = true
         self.view.addSubview(scrollView)
 
-        // ScrollView Constraints
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(horizontalLine.snp.bottom).offset(10)
             make.leading.equalTo(safeArea.snp.leading).offset(40)
@@ -284,7 +292,6 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             make.width.equalTo(scrollView)
         }
         
-        // 여기에 50개의 mainStackView를 dicstackView에 추가
         for _ in 0..<50 {
             let stackView = createHorizontalStackView()
             dicstackView.addArrangedSubview(stackView)
@@ -294,7 +301,6 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             }
         }
         
-        // 마지막으로 추가된 stackView의 바닥은 dicstackView의 바닥과 같아야 함으로써 스크롤뷰의 콘텐츠 크기를 결정함
         if let lastStackView = dicstackView.arrangedSubviews.last {
             lastStackView.snp.makeConstraints { make in
                 make.bottom.equalTo(dicstackView.snp.bottom)
@@ -302,11 +308,9 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
 
-    
     func loadDicData() {
 
     }
-
     
     @objc private func arrowButtonTapped() {
         dismiss(animated: true) {
@@ -320,4 +324,12 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 }
 
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
 
+struct ViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        DicViewController().showPreview(.iPhone14Pro)
+    }
+}
+#endif
