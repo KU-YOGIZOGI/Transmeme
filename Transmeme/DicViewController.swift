@@ -9,8 +9,11 @@ import UIKit
 import SnapKit
 import Then
 
-class DicViewController: UIViewController{
+class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
     var isBookmarkFilled = false
+    let dropdownTableView = UITableView()
+    let dropdownOptions = ["전체", "X세대", "MZ세대"]
     let topLabel = UILabel().then{
         $0.text = "[세대별 도감]"
         $0.textColor = UIColor.black
@@ -21,6 +24,12 @@ class DicViewController: UIViewController{
     }
     let searchButton = UIButton().then {
         $0.setImage(UIImage(named: "search"), for: .normal)
+    }
+    let searchTextField = UITextField().then {
+        $0.borderStyle = .none
+        $0.placeholder = "검색"
+        $0.returnKeyType = .search
+        $0.clearButtonMode = .whileEditing
     }
     let generationButton = UIButton().then {
         $0.setImage(UIImage(named: "dicgenButton"), for: .normal)
@@ -45,6 +54,7 @@ class DicViewController: UIViewController{
     let arrowButton = UIButton().then {
         $0.setImage(UIImage(named: "arrow"), for: .normal)
     }
+    let scrollView = UIScrollView()
     let bookmarkButton = UIButton().then {
         $0.setImage(UIImage(named: "bookMark"), for: .normal)
     }
@@ -76,6 +86,7 @@ class DicViewController: UIViewController{
         self.view.addSubview(topLabel)
         self.view.addSubview(searchImage)
         self.view.addSubview(searchButton)
+        self.view.addSubview(searchTextField)
         applyConstraintsToTopSection()
         
         self.view.addSubview(generationButton)
@@ -86,11 +97,12 @@ class DicViewController: UIViewController{
         self.view.addSubview(verticalLine)
         self.view.addSubview(horizontalLine)
         applyConstraintsToMidSection()
-        
-        setupStackView()
+    
+        setupScrollViewAndStackViews()
         arrowButton.addTarget(self, action: #selector(arrowButtonTapped), for: .touchUpInside)
         bookmarkButton.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
-
+        setupDropdownTableView()
+        generationButton.addTarget(self, action: #selector(toggleDropdown), for: .touchUpInside)
     }
     
     func applyConstraintsToTopSection() {
@@ -112,8 +124,12 @@ class DicViewController: UIViewController{
             make.top.equalTo(searchImage.snp.top).offset(16)
             make.trailing.equalTo(searchImage.snp.trailing).offset(-17)
         }
+        searchTextField.snp.makeConstraints { make in
+            make.centerY.equalTo(searchImage)
+            make.leading.equalTo(searchImage.snp.leading).offset(20)
+        }
     }
-    
+
     func applyConstraintsToMidSection() {
         let safeArea = view.safeAreaLayoutGuide
         
@@ -162,43 +178,127 @@ class DicViewController: UIViewController{
         }
     }
     
-    func setupStackView() {
-        let safeArea = view.safeAreaLayoutGuide
+    func setupDropdownTableView() {
+        dropdownTableView.isHidden = true
+        dropdownTableView.delegate = self
+        dropdownTableView.dataSource = self
+        self.view.addSubview(dropdownTableView)
 
-        let verticalStackView = UIStackView().then {
+        dropdownTableView.snp.makeConstraints { make in
+            make.top.equalTo(generationLabel.snp.bottom).offset(5)
+            make.leading.equalTo(labelHighlight.snp.leading)
+            make.width.equalTo(140)
+            make.height.equalTo(140)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return dropdownOptions.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       let cell = tableView.dequeueReusableCell(withIdentifier: "dropdownCell") ?? UITableViewCell(style: .default, reuseIdentifier: "dropdownCell")
+        cell.textLabel?.text = dropdownOptions[indexPath.row]
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
+    
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        generationLabel.text = dropdownOptions[indexPath.row]
+        toggleDropdown()
+    }
+
+    @objc func toggleDropdown() {
+        UIView.animate(withDuration: 0.3) {
+            self.dropdownTableView.isHidden = !self.dropdownTableView.isHidden
+            self.view.layoutIfNeeded()
+        }
+    }
+        
+    func createHorizontalStackView() -> UIStackView {
+        let titleLabel = UILabel().then {
+            $0.text = "1. 안습"
+            $0.textColor = UIColor.black
+            $0.numberOfLines = 1
+        }
+        let meanLabel = UILabel().then {
+            $0.text = ": 안타깝거나 불쌍해 눈물이 남."
+            $0.textColor = UIColor.black
+            $0.numberOfLines = 1
+        }
+        let exLabel = UILabel().then {
+            $0.text = "ex. 이번 학기 학점 안습이네. 정말 안타깝다."
+            $0.textColor = UIColor.black
+            $0.numberOfLines = 0
+        }
+        let bookmarkButton = UIButton().then {
+            $0.setImage(UIImage(named: "bookMark"), for: .normal)
+        }
+
+        let verticalStackView = UIStackView(arrangedSubviews: [titleLabel, meanLabel, exLabel]).then {
             $0.axis = .vertical
-            $0.distribution = .fill
-            $0.alignment = .leading
             $0.spacing = 6
+            $0.alignment = .leading
+            $0.distribution = .equalSpacing
         }
-        
-        verticalStackView.addArrangedSubview(titleLabel)
-        verticalStackView.addArrangedSubview(meanLabel)
-        verticalStackView.addArrangedSubview(exLabel)
-        
-        let mainStackView = UIStackView().then {
-            $0.axis = .horizontal
-            $0.distribution = .fill
-            $0.alignment = .top
-            $0.spacing = 10
-        }
-        
-        mainStackView.addArrangedSubview(bookmarkButton)
-        mainStackView.addArrangedSubview(verticalStackView)
 
-        self.view.addSubview(mainStackView)
-        
-        mainStackView.snp.makeConstraints { make in
-            make.top.equalTo(horizontalLine.snp.bottom).offset(10)
-            make.leading.equalTo(safeArea.snp.leading).offset(45)
-            make.trailing.equalTo(safeArea.snp.trailing).offset(-45)
+        let horizontalStackView = UIStackView(arrangedSubviews: [bookmarkButton, verticalStackView]).then {
+            $0.axis = .horizontal
+            $0.spacing = 28
+            $0.alignment = .top
+            $0.distribution = .fill
         }
+
         bookmarkButton.snp.makeConstraints { make in
             make.width.equalTo(16)
             make.height.equalTo(20)
+            make.leading.equalTo(horizontalStackView.snp.leading).offset(15)
         }
+
         verticalStackView.snp.makeConstraints { make in
-            make.leading.equalTo(safeArea.snp.leading).offset(100)
+            make.leading.equalTo(bookmarkButton.snp.trailing).offset(28)
+            make.top.equalTo(bookmarkButton.snp.top)
+        }
+        return horizontalStackView
+    }
+    
+    func setupScrollViewAndStackViews() {
+        let safeArea = view.safeAreaLayoutGuide
+        scrollView.alwaysBounceVertical = true
+        scrollView.showsVerticalScrollIndicator = true
+        self.view.addSubview(scrollView)
+
+        // ScrollView Constraints
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(horizontalLine.snp.bottom).offset(10)
+            make.leading.equalTo(safeArea.snp.leading).offset(40)
+            make.trailing.equalTo(safeArea.snp.trailing).offset(-45)
+            make.bottom.equalTo(safeArea)
+        }
+
+        scrollView.addSubview(dicstackView)
+        dicstackView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(scrollView)
+            make.bottom.equalTo(scrollView.snp.bottom)
+            make.width.equalTo(scrollView)
+        }
+        
+        // 여기에 50개의 mainStackView를 dicstackView에 추가
+        for _ in 0..<50 {
+            let stackView = createHorizontalStackView()
+            dicstackView.addArrangedSubview(stackView)
+            
+            stackView.snp.makeConstraints { make in
+                make.leading.trailing.equalTo(dicstackView)
+            }
+        }
+        
+        // 마지막으로 추가된 stackView의 바닥은 dicstackView의 바닥과 같아야 함으로써 스크롤뷰의 콘텐츠 크기를 결정함
+        if let lastStackView = dicstackView.arrangedSubviews.last {
+            lastStackView.snp.makeConstraints { make in
+                make.bottom.equalTo(dicstackView.snp.bottom)
+            }
         }
     }
 
@@ -228,3 +328,5 @@ class DicViewController: UIViewController{
      }
  }
  #endif
+
+
