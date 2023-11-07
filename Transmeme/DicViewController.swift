@@ -319,14 +319,5 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         bookmarkButton.setImage(UIImage(named: imageName), for: .normal)
     }
 }
-#if canImport(SwiftUI) && DEBUG
- import SwiftUI
-
- struct ViewControllerPreview: PreviewProvider {
-     static var previews: some View {
-         DicViewController().showPreview(.iPhone14Pro)
-     }
- }
- #endif
 
 
