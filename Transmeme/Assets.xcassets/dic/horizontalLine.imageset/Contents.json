@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "선 5 (3).png",
+      "filename" : "horizontalLine.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "선 5 (4).png",
+      "filename" : "horizontalLine1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "선 5 (5).png",
+      "filename" : "horizontalLine2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

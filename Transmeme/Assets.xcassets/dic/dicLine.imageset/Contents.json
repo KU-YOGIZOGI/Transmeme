@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "선 4.png",
+      "filename" : "dicLine.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "선 4 (1).png",
+      "filename" : "dicLine1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "선 4 (2).png",
+      "filename" : "dicLine2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
