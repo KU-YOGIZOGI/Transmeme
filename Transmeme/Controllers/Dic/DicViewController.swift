@@ -46,6 +46,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 25)
         $0.numberOfLines = 0
+        $0.adjustsFontSizeToFitWidth = true
     }
     let verticalLine = UIImageView().then {
         $0.image = UIImage(named: "verticalLine")
@@ -143,11 +144,11 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         generationButton.snp.makeConstraints { make in
             make.width.equalTo(12)
             make.height.equalTo(9)
-            make.leading.equalTo(safeArea.snp.leading).offset(85)
+            make.leading.equalTo(safeArea.snp.leading).offset(104)
             make.centerY.equalTo(generationLabel)
         }
         labelHighlight.snp.makeConstraints { make in
-            make.width.equalTo(73)
+            make.width.equalTo(95)
             make.height.equalTo(9)
             make.top.equalTo(searchImage.snp.bottom).offset(47)
             make.leading.equalTo(safeArea.snp.leading).offset(26)
@@ -323,3 +324,12 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         bookmarkButton.setImage(UIImage(named: imageName), for: .normal)
     }
 }
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct ViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        DicViewController().showPreview(.iPhone14Pro)
+    }
+}
+#endif
