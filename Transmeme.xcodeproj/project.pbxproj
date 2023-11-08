@@ -13,12 +13,12 @@
 		1AF7C93B2AFB7B2400D7AA47 /* TestCorrectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C93A2AFB7B2400D7AA47 /* TestCorrectViewController.swift */; };
 		1AF7C93D2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C93C2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift */; };
 		7A695C4C2AFA9CCA00A30281 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A695C4B2AFA9CCA00A30281 /* TabBarViewController.swift */; };
-		7A695C4E2AFAA4BF00A30281 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A695C4D2AFAA4BF00A30281 /* Splash.png */; };
 		7A695C502AFAA5B700A30281 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A695C4F2AFAA5B700A30281 /* Splash.storyboard */; };
 		7A695C522AFAA68900A30281 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A695C512AFAA68900A30281 /* SplashViewController.swift */; };
 		7A695C5D2AFB97A100A30281 /* TransModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A695C5C2AFB97A100A30281 /* TransModel.swift */; };
 		7A695C5F2AFB97AD00A30281 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A695C5E2AFB97AD00A30281 /* TestModel.swift */; };
 		7A695C612AFB97B600A30281 /* DicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A695C602AFB97B600A30281 /* DicModel.swift */; };
+		7A695C652AFB9FB600A30281 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A695C642AFB9FB600A30281 /* Splash.png */; };
 		7A70BE222AF66456008BC964 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE212AF66456008BC964 /* UIColor+Extension.swift */; };
 		7A70BE242AF6646F008BC964 /* UITextField+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */; };
 		7A70BE262AF6648D008BC964 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE252AF6648D008BC964 /* InsetTextField.swift */; };
@@ -42,12 +42,12 @@
 		1AF7C93C2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIncorrectViewController.swift; sourceTree = "<group>"; };
 		762BD7EBEEF0272D3EF100C6 /* Pods-Transmeme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmeme.debug.xcconfig"; path = "Target Support Files/Pods-Transmeme/Pods-Transmeme.debug.xcconfig"; sourceTree = "<group>"; };
 		7A695C4B2AFA9CCA00A30281 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		7A695C4D2AFAA4BF00A30281 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		7A695C4F2AFAA5B700A30281 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		7A695C512AFAA68900A30281 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		7A695C5C2AFB97A100A30281 /* TransModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransModel.swift; sourceTree = "<group>"; };
 		7A695C5E2AFB97AD00A30281 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		7A695C602AFB97B600A30281 /* DicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicModel.swift; sourceTree = "<group>"; };
+		7A695C642AFB9FB600A30281 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = ../../Splash.png; sourceTree = "<group>"; };
 		7A70BE212AF66456008BC964 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extenstion.swift"; sourceTree = "<group>"; };
 		7A70BE252AF6648D008BC964 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 				7A695C582AFB975700A30281 /* Models */,
 				7A70BE202AF66438008BC964 /* Extensions */,
 				7A84B4922AB7E97800845EF4 /* Assets.xcassets */,
-				7A695C4D2AFAA4BF00A30281 /* Splash.png */,
+				7A695C642AFB9FB600A30281 /* Splash.png */,
 				7A695C4F2AFAA5B700A30281 /* Splash.storyboard */,
 				7A84B4972AB7E97800845EF4 /* Info.plist */,
 				7A695C572AFB96B900A30281 /* AppDelegate */,
@@ -293,8 +293,8 @@
 				7A70BE372AF90D88008BC964 /* GmarketSansBold.otf in Resources */,
 				7A84B4932AB7E97800845EF4 /* Assets.xcassets in Resources */,
 				7A70BE382AF90D88008BC964 /* GmarketSansLight.otf in Resources */,
-				7A695C4E2AFAA4BF00A30281 /* Splash.png in Resources */,
 				7A70BE392AF90D88008BC964 /* GmarketSansMedium.otf in Resources */,
+				7A695C652AFB9FB600A30281 /* Splash.png in Resources */,
 				7A695C502AFAA5B700A30281 /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
