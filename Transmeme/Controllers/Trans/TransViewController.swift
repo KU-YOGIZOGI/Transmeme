@@ -308,7 +308,7 @@ class TransViewController: UIViewController {
     }
     
         @objc func transBtnTapped(){
-    
+            
     
         } //버튼 누르면 수행할거(나중에 네비게이션으로)
     
