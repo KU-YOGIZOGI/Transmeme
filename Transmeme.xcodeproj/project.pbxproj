@@ -86,7 +86,6 @@
 		7A70BE202AF66438008BC964 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7A695C4D2AFAA4BF00A30281 /* Splash.png */,
 				7A70BE212AF66456008BC964 /* UIColor+Extension.swift */,
 				7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */,
 				7A70BE252AF6648D008BC964 /* InsetTextField.swift */,
@@ -127,6 +126,7 @@
 		7A84B4882AB7E97700845EF4 /* Transmeme */ = {
 			isa = PBXGroup;
 			children = (
+				7A695C4D2AFAA4BF00A30281 /* Splash.png */,
 				7A70BE332AF90D6B008BC964 /* Fonts */,
 				7A84B4892AB7E97700845EF4 /* AppDelegate.swift */,
 				7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */,

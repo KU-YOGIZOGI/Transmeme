@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
+    //frame: UIScreen.main.bounds
         self.window = window
         let tabBarVC = TabBarViewController()
         let splashVC = SplashViewController()
