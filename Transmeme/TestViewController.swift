@@ -131,7 +131,7 @@ class TestViewController: UIViewController {
     }
     let nextButton = UIButton().then {
         $0.setTitle("다음", for: .normal)
-        $0.titleLabel?.font = .systemFont(ofSize: 18)
+        $0.titleLabel?.font = UIFont(name: "GmarketSansMedium", size: 18)
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.setImage(UIImage(named: "nextButton"), for: .normal)
         $0.imageView?.contentMode = .scaleAspectFit
@@ -295,7 +295,7 @@ class TestViewController: UIViewController {
             make.centerX.equalTo(hintView)
         }
         nextButton.snp.makeConstraints { make in
-            make.width.equalTo(52)
+            make.width.equalTo(60)
             make.height.equalTo(22)
             make.trailing.equalTo(quizView.snp.trailing).offset(-34)
             make.leading.equalTo(quizView.snp.leading).offset(264)
@@ -322,3 +322,12 @@ class TestViewController: UIViewController {
         }
     }
 }
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct ViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        TestViewController().showPreview(.iPhone14Pro)
+    }
+}
+#endif
