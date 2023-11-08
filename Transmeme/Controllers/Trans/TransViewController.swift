@@ -98,6 +98,7 @@ class TransViewController: UIViewController {
         $0.textColor = UIColor(r: 0, g: 0, b: 0)
         $0.font = UIFont(name: "GmarketSansLight", size: 15)
         $0.insetX = 12
+        $0.becomeFirstResponder()
     }
     
     let lineView = UIView().then {
