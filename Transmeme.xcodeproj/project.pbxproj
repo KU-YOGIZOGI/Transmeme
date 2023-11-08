@@ -16,6 +16,9 @@
 		7A695C4E2AFAA4BF00A30281 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A695C4D2AFAA4BF00A30281 /* Splash.png */; };
 		7A695C502AFAA5B700A30281 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A695C4F2AFAA5B700A30281 /* Splash.storyboard */; };
 		7A695C522AFAA68900A30281 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A695C512AFAA68900A30281 /* SplashViewController.swift */; };
+		7A695C5D2AFB97A100A30281 /* TransModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A695C5C2AFB97A100A30281 /* TransModel.swift */; };
+		7A695C5F2AFB97AD00A30281 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A695C5E2AFB97AD00A30281 /* TestModel.swift */; };
+		7A695C612AFB97B600A30281 /* DicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A695C602AFB97B600A30281 /* DicModel.swift */; };
 		7A70BE222AF66456008BC964 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE212AF66456008BC964 /* UIColor+Extension.swift */; };
 		7A70BE242AF6646F008BC964 /* UITextField+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */; };
 		7A70BE262AF6648D008BC964 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE252AF6648D008BC964 /* InsetTextField.swift */; };
@@ -26,7 +29,6 @@
 		7A70BE392AF90D88008BC964 /* GmarketSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A70BE362AF90D88008BC964 /* GmarketSansMedium.otf */; };
 		7A84B48A2AB7E97700845EF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B4892AB7E97700845EF4 /* AppDelegate.swift */; };
 		7A84B48C2AB7E97700845EF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */; };
-		7A84B48E2AB7E97700845EF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B48D2AB7E97700845EF4 /* ViewController.swift */; };
 		7A84B4932AB7E97800845EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A84B4922AB7E97800845EF4 /* Assets.xcassets */; };
 		97FE109E5DF517581B217CE4 /* Pods_Transmeme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0767E3FB5232BD5301865F3B /* Pods_Transmeme.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +45,9 @@
 		7A695C4D2AFAA4BF00A30281 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		7A695C4F2AFAA5B700A30281 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		7A695C512AFAA68900A30281 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		7A695C5C2AFB97A100A30281 /* TransModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransModel.swift; sourceTree = "<group>"; };
+		7A695C5E2AFB97AD00A30281 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		7A695C602AFB97B600A30281 /* DicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicModel.swift; sourceTree = "<group>"; };
 		7A70BE212AF66456008BC964 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extenstion.swift"; sourceTree = "<group>"; };
 		7A70BE252AF6648D008BC964 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
@@ -54,7 +59,6 @@
 		7A84B4862AB7E97700845EF4 /* Transmeme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transmeme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A84B4892AB7E97700845EF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7A84B48D2AB7E97700845EF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7A84B4922AB7E97800845EF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A84B4972AB7E97800845EF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F12775A42B24C576F615BA82 /* Pods-Transmeme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmeme.release.xcconfig"; path = "Target Support Files/Pods-Transmeme/Pods-Transmeme.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +91,87 @@
 				F12775A42B24C576F615BA82 /* Pods-Transmeme.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7A695C532AFB943C00A30281 /* Trans */ = {
+			isa = PBXGroup;
+			children = (
+				7A70BE2F2AF67369008BC964 /* TransViewController.swift */,
+			);
+			path = Trans;
+			sourceTree = "<group>";
+		};
+		7A695C542AFB944700A30281 /* Dic */ = {
+			isa = PBXGroup;
+			children = (
+				1A7450052AF66B39007B22B2 /* DicViewController.swift */,
+			);
+			path = Dic;
+			sourceTree = "<group>";
+		};
+		7A695C552AFB945600A30281 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				1AF7C9372AFA9A0700D7AA47 /* TestViewController.swift */,
+				1AF7C93A2AFB7B2400D7AA47 /* TestCorrectViewController.swift */,
+				1AF7C93C2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		7A695C562AFB946D00A30281 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A695C512AFAA68900A30281 /* SplashViewController.swift */,
+				7A695C4B2AFA9CCA00A30281 /* TabBarViewController.swift */,
+				7A695C532AFB943C00A30281 /* Trans */,
+				7A695C552AFB945600A30281 /* Test */,
+				7A695C542AFB944700A30281 /* Dic */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7A695C572AFB96B900A30281 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */,
+				7A84B4892AB7E97700845EF4 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		7A695C582AFB975700A30281 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7A695C592AFB976500A30281 /* Trans */,
+				7A695C5A2AFB976D00A30281 /* Test */,
+				7A695C5B2AFB977500A30281 /* Dic */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7A695C592AFB976500A30281 /* Trans */ = {
+			isa = PBXGroup;
+			children = (
+				7A695C5C2AFB97A100A30281 /* TransModel.swift */,
+			);
+			path = Trans;
+			sourceTree = "<group>";
+		};
+		7A695C5A2AFB976D00A30281 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				7A695C5E2AFB97AD00A30281 /* TestModel.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		7A695C5B2AFB977500A30281 /* Dic */ = {
+			isa = PBXGroup;
+			children = (
+				7A695C602AFB97B600A30281 /* DicModel.swift */,
+			);
+			path = Dic;
 			sourceTree = "<group>";
 		};
 		7A70BE202AF66438008BC964 /* Extensions */ = {
@@ -132,22 +217,15 @@
 		7A84B4882AB7E97700845EF4 /* Transmeme */ = {
 			isa = PBXGroup;
 			children = (
-				7A695C4D2AFAA4BF00A30281 /* Splash.png */,
-				7A70BE332AF90D6B008BC964 /* Fonts */,
-				7A84B4892AB7E97700845EF4 /* AppDelegate.swift */,
-				7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */,
-				7A84B48D2AB7E97700845EF4 /* ViewController.swift */,
-				7A70BE2F2AF67369008BC964 /* TransViewController.swift */,
-				1A7450052AF66B39007B22B2 /* DicViewController.swift */,
-				7A695C4B2AFA9CCA00A30281 /* TabBarViewController.swift */,
-				7A695C512AFAA68900A30281 /* SplashViewController.swift */,
-				1AF7C9372AFA9A0700D7AA47 /* TestViewController.swift */,
-				1AF7C93A2AFB7B2400D7AA47 /* TestCorrectViewController.swift */,
-				1AF7C93C2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift */,
+				7A695C562AFB946D00A30281 /* Controllers */,
+				7A695C582AFB975700A30281 /* Models */,
 				7A70BE202AF66438008BC964 /* Extensions */,
 				7A84B4922AB7E97800845EF4 /* Assets.xcassets */,
-				7A84B4972AB7E97800845EF4 /* Info.plist */,
+				7A695C4D2AFAA4BF00A30281 /* Splash.png */,
 				7A695C4F2AFAA5B700A30281 /* Splash.storyboard */,
+				7A84B4972AB7E97800845EF4 /* Info.plist */,
+				7A695C572AFB96B900A30281 /* AppDelegate */,
+				7A70BE332AF90D6B008BC964 /* Fonts */,
 			);
 			path = Transmeme;
 			sourceTree = "<group>";
@@ -271,16 +349,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A7450042AF669DF007B22B2 /* PreviewExtension.swift in Sources */,
-				7A84B48E2AB7E97700845EF4 /* ViewController.swift in Sources */,
 				7A695C4C2AFA9CCA00A30281 /* TabBarViewController.swift in Sources */,
 				7A695C522AFAA68900A30281 /* SplashViewController.swift in Sources */,
 				1AF7C9392AFAC04300D7AA47 /* TestViewController.swift in Sources */,
 				1AF7C93B2AFB7B2400D7AA47 /* TestCorrectViewController.swift in Sources */,
+				7A695C5D2AFB97A100A30281 /* TransModel.swift in Sources */,
 				7A70BE242AF6646F008BC964 /* UITextField+Extenstion.swift in Sources */,
 				1A7450062AF66B39007B22B2 /* DicViewController.swift in Sources */,
 				7A84B48A2AB7E97700845EF4 /* AppDelegate.swift in Sources */,
 				7A70BE282AF664AB008BC964 /* UILabel+Extension.swift in Sources */,
 				7A70BE302AF67369008BC964 /* TransViewController.swift in Sources */,
+				7A695C5F2AFB97AD00A30281 /* TestModel.swift in Sources */,
+				7A695C612AFB97B600A30281 /* DicModel.swift in Sources */,
 				7A84B48C2AB7E97700845EF4 /* SceneDelegate.swift in Sources */,
 				7A70BE222AF66456008BC964 /* UIColor+Extension.swift in Sources */,
 				7A70BE262AF6648D008BC964 /* InsetTextField.swift in Sources */,
