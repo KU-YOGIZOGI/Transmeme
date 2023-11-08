@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "dicgenButton.png",
+      "filename" : "hint.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "dicgenButton1.png",
+      "filename" : "hint2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "dicgenButton2.png",
+      "filename" : "hint 1.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "dicgenButton.png",
+      "filename" : "quizncircle.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "dicgenButton1.png",
+      "filename" : "quizncircle2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "dicgenButton2.png",
+      "filename" : "quizncircle3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
