@@ -20,13 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     //frame: UIScreen.main.bounds
         self.window = window
         let tabBarVC = TabBarViewController()
-        let splashVC = SplashViewController()
+      //  let splashVC = SplashViewController()
         
         // 스플래시 화면이 표시된 후에 TabBarViewController를 표시하기 위해 Completion Handler를 설정
-        splashVC.splashCompletion = {
-            window.rootViewController = tabBarVC
-        }
-        
+//        splashVC.splashCompletion = {
+//            window.rootViewController = tabBarVC
+//        }
+//        
         window.rootViewController = TabBarViewController()
         window.makeKeyAndVisible()
 

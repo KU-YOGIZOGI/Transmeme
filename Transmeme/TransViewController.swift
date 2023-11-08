@@ -296,7 +296,7 @@ class TransViewController: UIViewController {
             $0.top.equalTo(meanLabel.snp.bottom).offset(10)
             $0.leading.equalTo(barImage2)
             $0.trailing.equalTo(resultTextLabel.snp.trailing)
-            $0.height.equalTo(180)
+            $0.height.equalTo(150)
         }
         
         lineView3.snp.makeConstraints {
