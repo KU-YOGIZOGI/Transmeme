@@ -131,18 +131,9 @@ class TestViewController: UIViewController {
     }
     let nextButton = UIButton().then {
         $0.setTitle("다음 >", for: .normal)
-        $0.titleLabel?.font = UIFont(name: "GmarketSansMedium", size: 16)
+        $0.titleLabel?.font = UIFont(name: "GmarketSansMedium", size: 20)
         $0.setTitleColor(UIColor.white, for: .normal)
-       // $0.setImage(UIImage(named: "nextButton"), for: .normal)
-        $0.imageView?.contentMode = .scaleAspectFit
-        $0.titleLabel?.lineBreakMode = .byWordWrapping
-        
-        let spacing: CGFloat = 7.0
-        $0.contentEdgeInsets = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
-        $0.titleEdgeInsets = UIEdgeInsets(top: 0, left: -($0.imageView?.frame.width ?? 0) - spacing, bottom: 0, right: $0.imageView?.frame.width ?? 0)
-        $0.imageEdgeInsets = UIEdgeInsets(top: 0, left: $0.titleLabel?.frame.width ?? 0, bottom: 0, right: -($0.titleLabel?.frame.width ?? 0) - spacing)
-        
-        $0.semanticContentAttribute = .forceRightToLeft
+   
     }
     let correctImageView = UIImageView().then {
         $0.image = UIImage(named: "correct")
@@ -197,11 +188,11 @@ class TestViewController: UIViewController {
         logoImage.snp.makeConstraints { make in
             make.width.equalTo(89)
             make.height.equalTo(91)
-            make.top.equalTo(topLabel.snp.bottom).offset(67)
+            make.top.equalTo(topLabel.snp.bottom).offset(50)
             make.leading.equalTo(safeArea.snp.leading).offset(65)
         }
         mzlabel.snp.makeConstraints { make in
-            make.top.equalTo(topLabel.snp.bottom).offset(80)
+            make.top.equalTo(topLabel.snp.bottom).offset(70)
             make.leading.equalTo(logoImage.snp.trailing).offset(13)
         }
         mzlabel2.snp.makeConstraints { make in
@@ -211,7 +202,7 @@ class TestViewController: UIViewController {
         labelHighlight.snp.makeConstraints { make in
             make.width.equalTo(144)
             make.height.equalTo(9)
-            make.top.equalTo(topLabel.snp.bottom).offset(94)
+            make.top.equalTo(topLabel.snp.bottom).offset(84)
             make.leading.equalTo(logoImage.snp.trailing).offset(10)
         }
     }
@@ -279,7 +270,7 @@ class TestViewController: UIViewController {
             make.height.equalTo(91)
             make.top.equalTo(quizButton2.snp.bottom).offset(29)
             make.centerX.equalTo(quizView)
-            make.bottom.equalTo(quizView.snp.bottom).offset(-33)
+            
         }
         hintalarm.snp.makeConstraints { make in
             make.width.height.equalTo(16)
@@ -299,7 +290,7 @@ class TestViewController: UIViewController {
             make.height.equalTo(22)
             make.trailing.equalTo(quizView.snp.trailing).offset(-34)
             make.leading.equalTo(quizView.snp.leading).offset(264)
-            make.top.equalTo(hintView.snp.bottom).offset(7)
+            make.top.equalTo(hintView.snp.bottom).offset(20)
         }
     }
     
@@ -322,3 +313,12 @@ class TestViewController: UIViewController {
         }
     }
 }
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct ViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        TestViewController().showPreview(.iPhone14Pro)
+    }
+}
+#endif
