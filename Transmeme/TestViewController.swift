@@ -129,7 +129,15 @@ class TestViewController: UIViewController {
         let attrString = NSMutableAttributedString(string: "ex.야, 너 소개팅 안해볼래?\n됐어, 나는 자만추야", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         $0.attributedText = attrString
     }
-    
+    let nextButton = UIButton().then {
+        $0.setImage(UIImage(named: "nextButton"), for: .normal)
+    }
+    let nextLabel = UILabel().then {
+        $0.text = "다음"
+        $0.textColor = UIColor.white
+        $0.font = UIFont(name: "GmarketSansMedium", size: 18)
+        $0.numberOfLines = 0
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -157,6 +165,8 @@ class TestViewController: UIViewController {
         self.view.addSubview(hintalarm)
         self.view.addSubview(hintLabel)
         self.view.addSubview(hintLabel2)
+        self.view.addSubview(nextButton)
+        self.view.addSubview(nextLabel)
         applyConstraintsToBottomSection()
     }
     
@@ -194,7 +204,7 @@ class TestViewController: UIViewController {
         
         quizView.snp.makeConstraints { make in
             make.width.equalTo(350)
-            make.height.equalTo(463)
+            make.height.equalTo(500)
             make.top.equalTo(logoImage.snp.bottom)
             make.centerX.equalTo(safeArea)
         }
@@ -217,7 +227,7 @@ class TestViewController: UIViewController {
         quizButton.snp.makeConstraints { make in
             make.width.equalTo(289)
             make.height.equalTo(44)
-            make.top.equalTo(questionLabel.snp.bottom).offset(57)
+            make.top.equalTo(questionLabel.snp.bottom).offset(40.6)
             make.centerX.equalTo(quizView)
         }
         quizLabel.snp.makeConstraints { make in
@@ -247,10 +257,11 @@ class TestViewController: UIViewController {
     }
     
     func applyConstraintsToBottomSection() {
+        let safeArea = view.safeAreaLayoutGuide
         hintView.snp.makeConstraints { make in
-            make.width.equalTo(255.5)
+            make.width.equalTo(quizButton)
             make.height.equalTo(91)
-            make.top.equalTo(quizButton2.snp.bottom).offset(39)
+            make.top.equalTo(quizButton2.snp.bottom).offset(29)
             make.centerX.equalTo(quizView)
             make.bottom.equalTo(quizView.snp.bottom).offset(-33)
         }
@@ -267,5 +278,24 @@ class TestViewController: UIViewController {
             make.top.equalTo(hintView.snp.top).offset(38)
             make.centerX.equalTo(hintView)
         }
+        nextButton.snp.makeConstraints { make in
+            make.width.equalTo(11)
+            make.height.equalTo(20)
+            make.trailing.equalTo(quizView.snp.trailing).offset(-34)
+            make.top.equalTo(hintView.snp.bottom).offset(24)
+        }
+        nextLabel.snp.makeConstraints { make in
+            make.top.equalTo(hintView.snp.bottom).offset(24)
+            make.leading.equalTo(quizView.snp.leading).offset(264)
+        }
     }
 }
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct ViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        TestViewController().showPreview(.iPhone14Pro)
+    }
+}
+#endif
