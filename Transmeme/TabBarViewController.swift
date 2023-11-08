@@ -27,7 +27,7 @@ class TabBarViewController: UITabBarController {
         let attributes = [NSAttributedString.Key.font: UIFont(name: "GmarketSansMedium", size: 11)!]
         
         let transVC = TransViewController()
-        let testVC = ViewController()
+        let testVC = TestViewController()
         let dicVC = DicViewController()
         
         transVC.title = "홈"
