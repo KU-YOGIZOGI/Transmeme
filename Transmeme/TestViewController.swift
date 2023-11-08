@@ -130,10 +130,10 @@ class TestViewController: UIViewController {
         $0.attributedText = attrString
     }
     let nextButton = UIButton().then {
-        $0.setTitle("다음", for: .normal)
-        $0.titleLabel?.font = UIFont(name: "GmarketSansMedium", size: 18)
+        $0.setTitle("다음 >", for: .normal)
+        $0.titleLabel?.font = UIFont(name: "GmarketSansMedium", size: 16)
         $0.setTitleColor(UIColor.white, for: .normal)
-        $0.setImage(UIImage(named: "nextButton"), for: .normal)
+       // $0.setImage(UIImage(named: "nextButton"), for: .normal)
         $0.imageView?.contentMode = .scaleAspectFit
         $0.titleLabel?.lineBreakMode = .byWordWrapping
         
@@ -299,7 +299,7 @@ class TestViewController: UIViewController {
             make.height.equalTo(22)
             make.trailing.equalTo(quizView.snp.trailing).offset(-34)
             make.leading.equalTo(quizView.snp.leading).offset(264)
-            make.top.equalTo(hintView.snp.bottom).offset(24)
+            make.top.equalTo(hintView.snp.bottom).offset(7)
         }
     }
     
