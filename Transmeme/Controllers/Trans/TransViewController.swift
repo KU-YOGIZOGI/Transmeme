@@ -65,6 +65,14 @@ class TransViewController: UIViewController {
         $0.text = "모르는 단어를 검색해주세요"
         $0.textColor = .black
         $0.font = UIFont(name: "GmarketSansMedium", size: 20)
+        
+        let underlineColor = UIColor(r: 58,g: 125,b: 253)
+        
+        let attributedString = NSMutableAttributedString(string: $0.text!)
+        attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(.underlineColor, value: underlineColor, range: NSRange(location: 0, length: attributedString.length))
+        $0.attributedText = attributedString
+        $0.sizeToFit()
     }
     
     let barImage = UIImageView().then {
@@ -76,7 +84,7 @@ class TransViewController: UIViewController {
     private let searchLabel =  UILabel().then {
         $0.text = "검색"
         $0.textColor = .black
-        $0.font = UIFont(name: "GmarketSansLight", size: 17)
+        $0.font = UIFont(name: "GmarketSansMedium", size: 17)
     }
     
     private let searchTextField = InsetTextField().then {
@@ -108,7 +116,7 @@ class TransViewController: UIViewController {
         $0.image = UIImage(named: "translogox1")
     }
     
-    private let resultTextLabel = UILabel().then {
+    let resultTextLabel = UILabel().then {
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 20
         $0.layer.borderColor = UIColor(r:173, g:170, b:170).cgColor
@@ -120,7 +128,7 @@ class TransViewController: UIViewController {
         $0.setTitle("번역하기", for: .normal)
         $0.titleLabel?.font = UIFont(name: "GmarketSansMedium", size: 11)
         $0.layer.cornerRadius = 5 // 테두리 둥글기 설정
-        // $0.addTarget(TransViewController.self, action: #selector(transBtnTapped), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(transBtnTapped), for: .touchUpInside)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -136,7 +144,7 @@ class TransViewController: UIViewController {
     private let meanLabel =  UILabel().then {
         $0.text = "해설"
         $0.textColor = .black
-        $0.font = UIFont(name: "GmarketSansLight", size: 17)
+        $0.font = UIFont(name: "GmarketSansMedium", size: 17)
     }
     
     private let meanTextLabel = BasePaddingLabel(padding: UIEdgeInsets(top: 2, left: 12, bottom: 2, right: 4)).then {
@@ -146,6 +154,7 @@ class TransViewController: UIViewController {
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 20
         $0.layer.borderColor = UIColor(r:173, g:170, b:170).cgColor
+        $0.numberOfLines = 10
     
     }
     
@@ -308,11 +317,16 @@ class TransViewController: UIViewController {
     }
     
         @objc func transBtnTapped(){
+        
+            resultTextLabel.text = "   완전"
+            resultTextLabel.textColor = UIColor(r: 0, g: 0, b: 0)
+            resultTextLabel.font = UIFont(name: "GmarketSansLight", size: 15)
             
-    
+            meanTextLabel.text = "오나전(Z)\n\n\n'오나전'은 '완전'의 컴퓨터 자판 오타다.\n휴대전화와 컴퓨터 자판으로 '완전'이라는 글자를 급하게 치다보면 범하기 쉬운 실수에서 비롯됐다."
+            meanTextLabel.textColor = UIColor(r: 0, g: 0, b: 0)
+            meanTextLabel.font = UIFont(name: "GmarketSansLight", size: 15)
+
         } //버튼 누르면 수행할거(나중에 네비게이션으로)
-    
- 
     
 }
 
