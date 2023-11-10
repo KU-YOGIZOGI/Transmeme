@@ -9,12 +9,6 @@ import UIKit
 import SnapKit
 import Then
 
-
-struct WordEntry {
-    let title: String
-    let meaning: String
-    let example: String
-}
 class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var isBookmarkFilled = false
@@ -91,13 +85,11 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         $0.alignment = .leading
         $0.spacing = 10
     }
-    var wordEntries: [WordEntry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
 
-        loadDicData()
         self.view.addSubview(topLabel)
         self.view.addSubview(searchImage)
         self.view.addSubview(searchButton)
@@ -234,7 +226,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
    
     // dic stackview
-    func createHorizontalStackView(with wordEntry: WordEntry) -> UIStackView {
+    func createHorizontalStackView() -> UIStackView {
         let titleLabel = UILabel().then {
             $0.text = "1. 안습"
             $0.textColor = UIColor.black
@@ -268,9 +260,6 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             $0.alignment = .top
             $0.distribution = .fill
         }
-        titleLabel.text = wordEntry.title
-        meanLabel.text = wordEntry.meaning
-        exLabel.text = wordEntry.example
         bookmarkButton.snp.makeConstraints { make in
             make.width.equalTo(16)
             make.height.equalTo(20)
@@ -304,15 +293,14 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             make.width.equalTo(scrollView)
         }
         
-        for wordEntry in wordEntries {
-            let stackView = createHorizontalStackView(with: wordEntry)
+        for _ in 0..<50 {
+            let stackView = createHorizontalStackView()
             dicstackView.addArrangedSubview(stackView)
             
             stackView.snp.makeConstraints { make in
                 make.leading.trailing.equalTo(dicstackView)
             }
         }
-        
         
         if let lastStackView = dicstackView.arrangedSubviews.last {
             lastStackView.snp.makeConstraints { make in
@@ -322,26 +310,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func loadDicData() {
-        wordEntries = [
-            WordEntry(title: "1. 안습 [X]", meaning: ": 안타깝거나 불쌍해 눈물이 남.", example: "ex. 이번 학기 학점 안습이네. 정말 안타깝다."),
-            WordEntry(title: "2. 농협은행 [MZ]", meaning: ": 너무 예쁘다.", example: "ex. A(외국인): 넘흐입흐네여~ \nB : 감사합니다 ㅎㅎ \nA(외국인): 넘흐!(농협)입흐네여(은행)!"),
-            WordEntry(title: "3. H워얼V [MZ]", meaning: ": 사랑해.", example: "ex. 널 너무 H워얼V해. 너와 함께 시간을 보내는 게 너무 행복해."),
-            WordEntry(title: "4. 킹받드라슈 [MZ]", meaning: ": 열받는다.", example: "ex. 하 나 숙제 안해와서 엄청 혼났어. 개킹받드라슈."),
-            WordEntry(title: "5. kg받네 [MZ]", meaning: ": 열받는다.", example: "ex. 아 진짜 얘 깝죽거리는 것 좀 봐. kg받네."),
-            WordEntry(title: "6. 점메추/저메추 [MZ]", meaning: ": 점심메뉴추천/저녁메뉴추천", example: "ex. 점심은 뭐 먹을까? 점메추 좀 해줄래?"),
-            WordEntry(title: "7. 웃안웃 [MZ]", meaning: ": 웃긴데 안 웃긴다.", example: "ex. 그 영화, 웃안웃한 장면도 많아서 웃으면서 봤어."),
-            WordEntry(title: "8. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "9. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "10. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "11. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "12. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "13. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "14. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "15. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "16. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "17. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "18. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다.")
-        ]
+
     }
     
     @objc private func arrowButtonTapped() {
