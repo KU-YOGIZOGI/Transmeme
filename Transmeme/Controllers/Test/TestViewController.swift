@@ -176,7 +176,6 @@ class TestViewController: UIViewController {
         
         quizButton.addTarget(self, action: #selector(didTapquizButton), for: .touchUpInside)
         quizButton2.addTarget(self, action: #selector(didTapquizButton2), for: .touchUpInside)
-        nextButton.addTarget(self, action: #selector(didTapnextButton), for: .touchUpInside)
     }
     
     func applyConstraintsToTopSection() {
@@ -312,10 +311,5 @@ class TestViewController: UIViewController {
                 addVC.dismiss(animated: false, completion: nil)
             }
         }
-    }
-    @objc func didTapnextButton(_ sender: Any) {
-        let addVC = Test1ViewController()
-        addVC.modalPresentationStyle = .overFullScreen
-        present(addVC, animated: true)
     }
 }
