@@ -61,19 +61,25 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     let bookmarkButton = UIButton().then {
         $0.setImage(UIImage(named: "bookMark"), for: .normal)
     }
-    let titleLabel = UILabel().then {
+    let name = UILabel().then {
         $0.text = "1. 안습"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 15)
         $0.numberOfLines = 1
     }
-    let meanLabel = UILabel().then {
+    let generation = UILabel().then {
+        $0.text = "[X]"
+        $0.textColor = UIColor.black
+        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
+        $0.numberOfLines = 1
+    }
+    let script = UILabel().then {
         $0.text = ": 안타깝거나 불쌍해 눈물이 남."
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 15)
         $0.numberOfLines = 1
     }
-    let exLabel = UILabel().then {
+    let example = UILabel().then {
         $0.text = "ex. 이번 학기 학점 안습이네. 정말 안타깝다."
         $0.textColor = UIColor.gray
         $0.font = UIFont(name: "GmarketSansMedium", size: 14)
@@ -110,6 +116,9 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         bookmarkButton.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
         setupDropdownTableView()
         generationButton.addTarget(self, action: #selector(toggleDropdown), for: .touchUpInside)
+        
+        loadDicData()
+        
     }
     
     // constraints
@@ -178,7 +187,6 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             make.bottom.equalTo(safeArea)
         }
         horizontalLine.snp.makeConstraints { make in
-            make.width.equalTo(343)
             make.height.equalTo(1)
             make.top.equalTo(grayLine.snp.bottom).offset(40)
             make.leading.equalTo(safeArea.snp.leading).offset(43)
@@ -227,19 +235,25 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
    
     // dic stackview
     func createHorizontalStackView() -> UIStackView {
-        let titleLabel = UILabel().then {
+        let name = UILabel().then {
             $0.text = "1. 안습"
             $0.textColor = UIColor.black
             $0.font = UIFont(name: "GmarketSansMedium", size: 15)
             $0.numberOfLines = 1
         }
-        let meanLabel = UILabel().then {
+        let generation = UILabel().then {
+            $0.text = "[X]"
+            $0.textColor = UIColor(red: 125/255.0, green: 125/255.0, blue: 125/255.0, alpha: 1.0)
+            $0.font = UIFont(name: "GmarketSansMedium", size: 15)
+            $0.numberOfLines = 1
+        }
+        let script = UILabel().then {
             $0.text = ": 안타깝거나 불쌍해 눈물이 남."
             $0.textColor = UIColor.black
             $0.font = UIFont(name: "GmarketSansMedium", size: 15)
             $0.numberOfLines = 1
         }
-        let exLabel = UILabel().then {
+        let example = UILabel().then {
             $0.text = "ex. 이번 학기 학점 안습이네. 정말 안타깝다."
             $0.font = UIFont(name: "GmarketSansMedium", size: 14)
             $0.textColor = UIColor.gray
@@ -248,7 +262,19 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let bookmarkButton = UIButton().then {
             $0.setImage(UIImage(named: "bookMark"), for: .normal)
         }
-        let verticalStackView = UIStackView(arrangedSubviews: [titleLabel, meanLabel, exLabel]).then {
+        let titleAndGenerationStackView = UIStackView(arrangedSubviews: [name, generation]).then {
+            $0.axis = .horizontal
+            $0.spacing = 10
+            $0.alignment = .firstBaseline
+            $0.distribution = .fillProportionally
+        }
+        name.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+        }
+        generation.snp.makeConstraints { make in
+            make.leading.equalTo(name.snp.trailing).offset(10)
+        }
+        let verticalStackView = UIStackView(arrangedSubviews: [titleAndGenerationStackView, script, example]).then {
             $0.axis = .vertical
             $0.spacing = 6
             $0.alignment = .leading
@@ -310,7 +336,52 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func loadDicData() {
+        // HTTPS 프로토콜을 사용하도록 URL을 변경합니다.
+        let urlString = "https://43.202.102.163:8080/dictionary"
+        guard let url = URL(string: urlString) else {
+            print("유효하지 않은 URL입니다")
+            return
+        }
 
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            // 에러 체크
+            guard error == nil else {
+                print("Error: \(error!.localizedDescription)")
+                return
+            }
+            // 데이터 유효성 체크
+            guard let data = data else {
+                print("데이터가 없습니다")
+                return
+            }
+            // JSON 파싱
+            do {
+                if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                    // 메인 스레드에서 UI 업데이트
+                    DispatchQueue.main.async {
+                        // 파싱된 데이터를 사용하여 UI 업데이트
+                        self?.updateUI(with: jsonArray)
+                    }
+                } else {
+                    print("JSON 데이터가 딕셔너리 배열이 아닙니다")
+                }
+            } catch {
+                print("로드 실패: \(error.localizedDescription)")
+            }
+        }
+        task.resume()
+    }
+
+    // JSON 배열로부터 받은 데이터로 UI를 업데이트하는 메서드
+    func updateUI(with dictionaries: [[String: Any]]) {
+        // 예시로 첫 번째 항목만을 사용하여 UI 업데이트를 합니다.
+        // 실제 앱에서는 이 데이터를 사용하여 테이블 뷰를 채우거나 다른 UI 요소를 업데이트해야 할 수 있습니다.
+        if let firstDictionary = dictionaries.first {
+            name.text = firstDictionary["name"] as? String
+            generation.text = firstDictionary["generation"] as? String
+            script.text = firstDictionary["script"] as? String
+            example.text = firstDictionary["example"] as? String
+        }
     }
     
     @objc private func arrowButtonTapped() {
@@ -318,9 +389,10 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    @objc private func bookmarkButtonTapped() {
-        isBookmarkFilled.toggle()
+    @objc func bookmarkButtonTapped(sender: UIButton) {
+        isBookmarkFilled.toggle() // 현재 즐겨찾기 상태를 반전시킴
+
         let imageName = isBookmarkFilled ? "fillbookMark" : "bookMark"
-        bookmarkButton.setImage(UIImage(named: imageName), for: .normal)
+        sender.setImage(UIImage(named: imageName), for: .normal)
     }
 }

@@ -8,6 +8,10 @@
 		<string>GmarketSansLight.otf</string>
 		<string>GmarketSansBold.otf</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict/>
+	<key>NSAllowsArbitraryLoads</key>
+	<true/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
