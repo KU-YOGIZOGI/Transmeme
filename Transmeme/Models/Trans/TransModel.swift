@@ -6,4 +6,10 @@
 //
 
 import Foundation
-//
+
+struct TranslationResponse: Codable {
+    let standardWord: String
+    let meaning: String
+    let exampleSentences: [String]
+    let similarWords: [String]
+}
