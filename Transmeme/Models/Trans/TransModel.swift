@@ -8,10 +8,28 @@
 import Foundation
 
 struct TranslationResponse: Codable {
-    let slangWord: String
     let standardWord: String
     let generation: String
     let meaning: String
-    let exampleSentences: [String]
-    let similarWords: [String]
+    let example: String
+    let similarWords: String
+
+    
+    private enum CodingKeys: String, CodingKey {
+        case standardWord = "definition"
+        case generation
+        case meaning = "scripts"
+        case example
+        case similarWords = "similar"
+    }
+
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        standardWord = try container.decode(String.self, forKey: .standardWord)
+        generation = try container.decode(String.self, forKey: .generation)
+        meaning = try container.decode(String.self, forKey: .meaning)
+        example = try container.decode(String.self, forKey: .example)
+        similarWords = try container.decode(String.self, forKey: .similarWords)
+    }
 }

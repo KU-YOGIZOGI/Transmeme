@@ -157,20 +157,20 @@ class TransViewController: UIViewController {
         $0.layer.borderColor = UIColor(r:173, g:170, b:170).cgColor
     }
     
-    let slangWord = UILabel().then {
-        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-        $0.textColor = .black
-        $0.text = "오나전"
-    }
-    let generation = UILabel().then {
-        $0.font = UIFont(name: "GmarketSansMedium", size: 10)
-        $0.textColor = UIColor(r: 152, g: 152, b: 152)
-        $0.text = "(Z)"
-    }
+//    let slangWord = UILabel().then {
+//        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
+//        $0.textColor = .black
+//        $0.text = "오나전"
+//    }
+//    let slangWordGen = UILabel().then {
+//        $0.font = UIFont(name: "GmarketSansMedium", size: 10)
+//        $0.textColor = UIColor(r: 152, g: 152, b: 152)
+//        $0.text = "(Z)"
+//    }
 
     private let meaningSection = TransSectionView(title: "• 의미", content: "컴퓨터,휴대폰 자판을 두드리다 보면 누구나 쉽게 겪는 '완전'의 오타이다.")
     private let exampleSection = TransSectionView(title: "• 예문", content: "오늘 엄마한테 혼났어 오나전 짜증나")
-    private let similarWordsSection = TransSectionViewWithTwoLabels(title: " • 다른 세대 유사 단어", firstContent: "캡",secondContent: "(Z)")
+    private let similarWordsSection = TransSectionViewWithTwoLabels(title: " • 다른 세대 유사 단어", firstContent: "캡",secondContent: "(X)")
     
     
     
@@ -207,8 +207,8 @@ class TransViewController: UIViewController {
         self.view.addSubview(MeanView)
       //  MeanTextView.text = "단어를 검색하면 해설이 나와요!"
         view.addSubview(lineView3)
-        MeanView.addSubview(slangWord)
-        MeanView.addSubview(generation)
+//        MeanView.addSubview(slangWord)
+//        MeanView.addSubview(slangWordGen)
         
         topview.snp.makeConstraints{
             $0.height.equalTo(280)
@@ -337,20 +337,20 @@ class TransViewController: UIViewController {
             $0.top.equalTo(MeanView.snp.top).offset(32)
             $0.height.equalTo(1)
         }
-        
-        slangWord.snp.makeConstraints {
-            $0.top.equalTo(MeanView.snp.top).offset(5)
-            $0.leading.equalTo(MeanView.snp.leading).offset(10)
-            $0.width.equalTo(45)
-            $0.bottom.equalTo(lineView3.snp.top).offset(-5)
-        }
-        
-        generation.snp.makeConstraints {
-            $0.top.equalTo(MeanView.snp.top).offset(10)
-            $0.leading.equalTo(slangWord.snp.trailing).offset(0)
-            $0.width.equalTo(15)
-            $0.bottom.equalTo(lineView3.snp.top).offset(-5)
-        }
+//
+//        slangWord.snp.makeConstraints {
+//            $0.top.equalTo(MeanView.snp.top).offset(5)
+//            $0.leading.equalTo(MeanView.snp.leading).offset(10)
+//            $0.width.equalTo(45)
+//            $0.bottom.equalTo(lineView3.snp.top).offset(-5)
+//        }
+//
+//        slangWordGen.snp.makeConstraints {
+//            $0.top.equalTo(MeanView.snp.top).offset(10)
+//            $0.leading.equalTo(slangWord.snp.trailing).offset(0)
+//            $0.width.equalTo(15)
+//            $0.bottom.equalTo(lineView3.snp.top).offset(-5)
+//        }
     }
     
     private func setupSections() {
@@ -383,14 +383,33 @@ class TransViewController: UIViewController {
     func updateSections(with translationResponse: TranslationResponse) {
         // UI 업데이트는 메인 스레드에서 수행해야 합니다.
         DispatchQueue.main.async {
-            self.meaningSection.contentLabel.text = translationResponse.meaning
-            self.exampleSection.contentLabel.text = translationResponse.exampleSentences.joined(separator: "\n")
-            self.similarWordsSection.contentLabel.text = translationResponse.similarWords.joined(separator: ", ")
-        }
+             self.meaningSection.contentLabel.text = translationResponse.meaning
+             self.exampleSection.contentLabel.text = translationResponse.example
+             self.similarWordsSection.contentLabel.text = translationResponse.similarWords
+         }
     }
     
     @objc func transBtnTapped(){
         
+        guard let slangWord = searchTextField.text, !slangWord.isEmpty else {
+                resultTextLabel.text = "검색어를 입력해주세요."
+                return
+            }
+        
+        fetchTranslation(for: slangWord) { [weak self] translationResponse in
+                DispatchQueue.main.async {
+                    if let response = translationResponse {
+                        // 서버로부터 응답을 받았을 때 UI를 업데이트합니다.
+                        self?.resultTextLabel.text = response.standardWord
+                        self?.updateSections(with: response)
+                        print("번역 성공: \(response)")
+                    } else {
+                        // 서버로부터 응답이 없거나 오류가 발생했을 때
+                        self?.resultTextLabel.text = "번역을 찾을 수 없습니다."
+                        print("번역 실패")
+                    }
+                }
+            }
     } //버튼 누르면 수행할거(나중에 네비게이션으로)
     
 }

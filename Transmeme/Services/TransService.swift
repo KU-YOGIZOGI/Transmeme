@@ -8,7 +8,7 @@
 import Foundation
 
 func fetchTranslation(for slangWord: String, completion: @escaping (TranslationResponse?) -> Void) {
-    let urlString = "http://43.202.102.163:8080/api/word=\(slangWord)"
+    let urlString = "http://transmeme.store:8080/word/"
     guard let url = URL(string: urlString) else {
         print("Invalid URL")
         completion(nil)
