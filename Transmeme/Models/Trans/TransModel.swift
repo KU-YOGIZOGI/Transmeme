@@ -13,6 +13,7 @@ struct TranslationResponse: Codable {
     let meaning: String
     let example: String
     let similarWords: String
+    let similarWordsGen: String
 
     
     private enum CodingKeys: String, CodingKey {
@@ -21,6 +22,7 @@ struct TranslationResponse: Codable {
         case meaning = "scripts"
         case example
         case similarWords = "similar"
+        case similarWordsGen = "similar_gen"
     }
 
     
@@ -31,5 +33,6 @@ struct TranslationResponse: Codable {
         meaning = try container.decode(String.self, forKey: .meaning)
         example = try container.decode(String.self, forKey: .example)
         similarWords = try container.decode(String.self, forKey: .similarWords)
+        similarWordsGen = try container.decode(String.self, forKey: .similarWordsGen)
     }
 }
