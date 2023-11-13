@@ -1,5 +1,5 @@
 //
-//  Test1ViewController.swift
+//  TestViewController.swift
 //  Transmeme
 //
 //  Created by 정아현 on 11/8/23.
@@ -10,11 +10,42 @@ import SnapKit
 import Then
 
 class Test1ViewController: UIViewController {
+    let topLabel = UILabel().then{
+        $0.text = "[신조어 테스트]"
+        $0.textColor = UIColor.black
+        $0.font = UIFont(name: "GmarketSansMedium", size: 25)
+        $0.numberOfLines = 0
+    }
+    let logoImage = UIImageView().then {
+        $0.image = UIImage(named: "bearx1")
+    }
+    let mzlabel = UILabel().then {
+        $0.text = "뼛속MZ 테스트"
+        $0.textColor = UIColor.black
+        $0.font = UIFont(name: "GmarketSansMedium", size: 20)
+        $0.numberOfLines = 0
+    }
+    let labelHighlight = UIImageView().then {
+        $0.image = UIImage(named: "labelHighlight")
+    }
+    let mzlabel2 = UILabel().then {
+        let labelText = "총 20문항, 10분 소요됩니다. \n힌트를 참고하여 맞춰보세요!"
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 5
+        
+        let attributedString = NSMutableAttributedString(string: labelText, attributes: [
+            .paragraphStyle: paragraphStyle,
+            .foregroundColor: UIColor(red: 79/255.0, green: 79/255.0, blue: 79/255.0, alpha: 1.0),
+            .font: UIFont(name: "GmarketSansLight", size: 13) ?? UIFont.systemFont(ofSize: 13)
+        ])
+        $0.attributedText = attributedString
+        $0.numberOfLines = 0
+    }
     let quizView = UIImageView().then {
         $0.image = UIImage(named: "quiz")
     }
     let quiznumLabel = UILabel().then {
-        let fullString = NSMutableAttributedString(string: "Q.2", attributes: [
+        let fullString = NSMutableAttributedString(string: "Q.1", attributes: [
             .font: UIFont(name: "GmarketSansMedium", size: 25)!,
             .foregroundColor: UIColor(red: 222/255.0, green: 222/255.0, blue: 222/255.0, alpha: 1.0)
         ])
@@ -23,7 +54,7 @@ class Test1ViewController: UIViewController {
             .font: UIFont(name: "GmarketSansMedium", size: 18) ?? UIFont.systemFont(ofSize: 18),
             .foregroundColor: UIColor(red: 173/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1.0)
         ]
-        let grayString = NSMutableAttributedString(string: "/20", attributes: grayAttribute)
+        let grayString = NSMutableAttributedString(string: "/10", attributes: grayAttribute)
         fullString.append(grayString)
         $0.attributedText = fullString
         $0.numberOfLines = 0
@@ -31,7 +62,7 @@ class Test1ViewController: UIViewController {
     let progressBar = UIProgressView().then {
         $0.trackTintColor = UIColor.lightGray
         $0.progressTintColor = UIColor(red: 74/255.0, green: 178/255.0, blue: 255/255.0, alpha: 1.0)
-        $0.progress = 0.10
+        $0.progress = 0.1
         $0.layer.cornerRadius = 5
         $0.clipsToBounds = true
         $0.transform = $0.transform.scaledBy(x: 1, y: 2)
@@ -47,14 +78,14 @@ class Test1ViewController: UIViewController {
         paragraphStyle.alignment = .center
         paragraphStyle.lineSpacing = 6
 
-        let attrString = NSMutableAttributedString(string: "다음 중 '졌잘싸'의 뜻은\n무엇일까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        let attrString = NSMutableAttributedString(string: "다음 중 '자만추'의 뜻은\n무엇일까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         $0.attributedText = attrString
     }
     let quizButton = UIButton().then {
         $0.setImage(UIImage(named: "quizButton"), for: .normal)
     }
     let quizLabel = UILabel().then {
-        $0.text = "졌지만 잘 싸웠다"
+        $0.text = "자신있게 만남 추구"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 18)
         $0.numberOfLines = 0
@@ -66,7 +97,7 @@ class Test1ViewController: UIViewController {
         $0.setImage(UIImage(named: "quizButton"), for: .normal)
     }
     let quizLabel2 = UILabel().then {
-        $0.text = "졌다더니 잘 싸워서 이겼구나?"
+        $0.text = "자연스러운 만남 추구"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 18)
         $0.numberOfLines = 0
@@ -95,7 +126,7 @@ class Test1ViewController: UIViewController {
         paragraphStyle.alignment = .center
         paragraphStyle.lineSpacing = 4
 
-        let attrString = NSMutableAttributedString(string: "ex. 대한민국 축구 대표팀 브라질과의 \n결승전에서 1:2 패배. 하지만 졌잘싸.", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        let attrString = NSMutableAttributedString(string: "ex.야, 너 소개팅 안해볼래?\n됐어, 나는 자만추야", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         $0.attributedText = attrString
     }
     let nextButton = UIButton().then {
@@ -112,10 +143,18 @@ class Test1ViewController: UIViewController {
         $0.image = UIImage(named: "incorrect")
         $0.alpha = 0
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .clear
-    
+        self.view.backgroundColor = .white
+        
+        self.view.addSubview(topLabel)
+        self.view.addSubview(logoImage)
+        self.view.addSubview(mzlabel)
+        self.view.addSubview(mzlabel2)
+        self.view.addSubview(labelHighlight)
+        applyConstraintsToTopSection()
+        
         self.view.addSubview(quizView)
         self.view.addSubview(quiznumLabel)
         self.view.addSubview(progressBar)
@@ -137,7 +176,36 @@ class Test1ViewController: UIViewController {
         
         quizButton.addTarget(self, action: #selector(didTapquizButton), for: .touchUpInside)
         quizButton2.addTarget(self, action: #selector(didTapquizButton2), for: .touchUpInside)
-        nextButton.addTarget(self, action: #selector(didTapnextButton), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
+    }
+    
+    func applyConstraintsToTopSection() {
+        let safeArea = view.safeAreaLayoutGuide
+        
+        topLabel.snp.makeConstraints { make in
+            make.top.equalTo(safeArea.snp.top).offset(11)
+            make.centerX.equalTo(safeArea)
+        }
+        logoImage.snp.makeConstraints { make in
+            make.width.equalTo(89)
+            make.height.equalTo(91)
+            make.top.equalTo(topLabel.snp.bottom).offset(50)
+            make.leading.equalTo(safeArea.snp.leading).offset(65)
+        }
+        mzlabel.snp.makeConstraints { make in
+            make.top.equalTo(topLabel.snp.bottom).offset(70)
+            make.leading.equalTo(logoImage.snp.trailing).offset(13)
+        }
+        mzlabel2.snp.makeConstraints { make in
+            make.top.equalTo(mzlabel.snp.bottom).offset(14)
+            make.leading.equalTo(mzlabel)
+        }
+        labelHighlight.snp.makeConstraints { make in
+            make.width.equalTo(144)
+            make.height.equalTo(9)
+            make.top.equalTo(topLabel.snp.bottom).offset(84)
+            make.leading.equalTo(logoImage.snp.trailing).offset(10)
+        }
     }
     
     func applyConstraintsToMidSection() {
@@ -146,7 +214,7 @@ class Test1ViewController: UIViewController {
         quizView.snp.makeConstraints { make in
             make.width.equalTo(350)
             make.height.equalTo(500)
-            make.top.equalTo(safeArea.snp.top).offset(194)
+            make.top.equalTo(logoImage.snp.bottom)
             make.centerX.equalTo(safeArea)
         }
         quiznumLabel.snp.makeConstraints { make in
@@ -226,16 +294,8 @@ class Test1ViewController: UIViewController {
             make.top.equalTo(hintView.snp.bottom).offset(20)
         }
     }
+    
     @objc func didTapquizButton(_ sender: Any) {
-        let addVC = TestCorrectViewController()
-        addVC.modalPresentationStyle = .overFullScreen
-        present(addVC, animated: false) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                addVC.dismiss(animated: false, completion: nil)
-            }
-        }
-    }
-    @objc func didTapquizButton2(_ sender: Any) {
         let addVC = TestIncorrectViewController()
         addVC.modalPresentationStyle = .overFullScreen
         present(addVC, animated: false) {
@@ -244,10 +304,18 @@ class Test1ViewController: UIViewController {
             }
         }
     }
-    @objc func didTapnextButton(_ sender: Any) {
+    @objc func didTapquizButton2(_ sender: Any) {
+        let addVC = TestCorrectViewController()
+        addVC.modalPresentationStyle = .overFullScreen
+        present(addVC, animated: false) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                addVC.dismiss(animated: false, completion: nil)
+            }
+        }
+    }
+    @objc func didTapNextButton(_ sender: Any) {
         let addVC = Test2ViewController()
         addVC.modalPresentationStyle = .overFullScreen
         present(addVC, animated: true)
     }
 }
-

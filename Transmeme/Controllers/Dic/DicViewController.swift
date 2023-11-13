@@ -9,14 +9,9 @@ import UIKit
 import SnapKit
 import Then
 
-
-struct WordEntry {
-    let title: String
-    let meaning: String
-    let example: String
-}
 class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    var dictionaryEntries: [DicInfo] = []
     var isBookmarkFilled = false
     let dropdownTableView = UITableView()
     let dropdownOptions = ["전체", "X세대", "MZ세대"]
@@ -67,19 +62,25 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     let bookmarkButton = UIButton().then {
         $0.setImage(UIImage(named: "bookMark"), for: .normal)
     }
-    let titleLabel = UILabel().then {
+    let name = UILabel().then {
         $0.text = "1. 안습"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 15)
         $0.numberOfLines = 1
     }
-    let meanLabel = UILabel().then {
+    let generation = UILabel().then {
+        $0.text = "[X]"
+        $0.textColor = UIColor.black
+        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
+        $0.numberOfLines = 1
+    }
+    let script = UILabel().then {
         $0.text = ": 안타깝거나 불쌍해 눈물이 남."
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 15)
         $0.numberOfLines = 1
     }
-    let exLabel = UILabel().then {
+    let example = UILabel().then {
         $0.text = "ex. 이번 학기 학점 안습이네. 정말 안타깝다."
         $0.textColor = UIColor.gray
         $0.font = UIFont(name: "GmarketSansMedium", size: 14)
@@ -91,13 +92,11 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         $0.alignment = .leading
         $0.spacing = 10
     }
-    var wordEntries: [WordEntry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
 
-        loadDicData()
         self.view.addSubview(topLabel)
         self.view.addSubview(searchImage)
         self.view.addSubview(searchButton)
@@ -115,9 +114,11 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
         setupScrollViewAndStackViews()
         arrowButton.addTarget(self, action: #selector(arrowButtonTapped), for: .touchUpInside)
-        bookmarkButton.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
         setupDropdownTableView()
         generationButton.addTarget(self, action: #selector(toggleDropdown), for: .touchUpInside)
+        
+        getDicInfo()
+        
     }
     
     // constraints
@@ -186,7 +187,6 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             make.bottom.equalTo(safeArea)
         }
         horizontalLine.snp.makeConstraints { make in
-            make.width.equalTo(343)
             make.height.equalTo(1)
             make.top.equalTo(grayLine.snp.bottom).offset(40)
             make.leading.equalTo(safeArea.snp.leading).offset(43)
@@ -234,29 +234,47 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
    
     // dic stackview
-    func createHorizontalStackView(with wordEntry: WordEntry) -> UIStackView {
-        let titleLabel = UILabel().then {
-            $0.text = "1. 안습"
+    func createHorizontalStackView(with entry: DicInfo) -> UIStackView {
+        let name = UILabel().then {
+            $0.text = entry.name
             $0.textColor = UIColor.black
             $0.font = UIFont(name: "GmarketSansMedium", size: 15)
             $0.numberOfLines = 1
         }
-        let meanLabel = UILabel().then {
-            $0.text = ": 안타깝거나 불쌍해 눈물이 남."
-            $0.textColor = UIColor.black
+        let generation = UILabel().then {
+            $0.text = entry.generation
+            $0.textColor = UIColor(red: 125/255.0, green: 125/255.0, blue: 125/255.0, alpha: 1.0)
             $0.font = UIFont(name: "GmarketSansMedium", size: 15)
             $0.numberOfLines = 1
         }
-        let exLabel = UILabel().then {
-            $0.text = "ex. 이번 학기 학점 안습이네. 정말 안타깝다."
-            $0.font = UIFont(name: "GmarketSansMedium", size: 14)
+        let script = UILabel().then {
+            $0.text = entry.script
+            $0.textColor = UIColor.black
+            $0.font = UIFont(name: "GmarketSansMedium", size: 12)
+            $0.numberOfLines = 0
+        }
+        let example = UILabel().then {
+            $0.text = entry.example
+            $0.font = UIFont(name: "GmarketSansMedium", size: 12)
             $0.textColor = UIColor.gray
             $0.numberOfLines = 0
         }
         let bookmarkButton = UIButton().then {
             $0.setImage(UIImage(named: "bookMark"), for: .normal)
         }
-        let verticalStackView = UIStackView(arrangedSubviews: [titleLabel, meanLabel, exLabel]).then {
+        let titleAndGenerationStackView = UIStackView(arrangedSubviews: [name, generation]).then {
+            $0.axis = .horizontal
+            $0.spacing = 10
+            $0.alignment = .firstBaseline
+            $0.distribution = .fillProportionally
+        }
+        name.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+        }
+        generation.snp.makeConstraints { make in
+            make.leading.equalTo(name.snp.trailing).offset(10)
+        }
+        let verticalStackView = UIStackView(arrangedSubviews: [titleAndGenerationStackView, script, example]).then {
             $0.axis = .vertical
             $0.spacing = 6
             $0.alignment = .leading
@@ -268,9 +286,6 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             $0.alignment = .top
             $0.distribution = .fill
         }
-        titleLabel.text = wordEntry.title
-        meanLabel.text = wordEntry.meaning
-        exLabel.text = wordEntry.example
         bookmarkButton.snp.makeConstraints { make in
             make.width.equalTo(16)
             make.height.equalTo(20)
@@ -280,6 +295,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             make.leading.equalTo(bookmarkButton.snp.trailing).offset(28)
             make.top.equalTo(bookmarkButton.snp.top)
         }
+        bookmarkButton.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
         return horizontalStackView
     }
     
@@ -294,7 +310,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             make.top.equalTo(horizontalLine.snp.bottom).offset(10)
             make.leading.equalTo(safeArea.snp.leading).offset(40)
             make.trailing.equalTo(safeArea.snp.trailing).offset(-45)
-            make.bottom.equalTo(safeArea)
+            make.bottom.equalTo(safeArea.snp.bottom).offset(-25)
         }
 
         scrollView.addSubview(dicstackView)
@@ -304,15 +320,14 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             make.width.equalTo(scrollView)
         }
         
-        for wordEntry in wordEntries {
-            let stackView = createHorizontalStackView(with: wordEntry)
+        for entry in dictionaryEntries {
+            let stackView = createHorizontalStackView(with: entry)
             dicstackView.addArrangedSubview(stackView)
             
             stackView.snp.makeConstraints { make in
                 make.leading.trailing.equalTo(dicstackView)
             }
         }
-        
         
         if let lastStackView = dicstackView.arrangedSubviews.last {
             lastStackView.snp.makeConstraints { make in
@@ -321,37 +336,62 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
 
-    func loadDicData() {
-        wordEntries = [
-            WordEntry(title: "1. 안습 [X]", meaning: ": 안타깝거나 불쌍해 눈물이 남.", example: "ex. 이번 학기 학점 안습이네. 정말 안타깝다."),
-            WordEntry(title: "2. 농협은행 [MZ]", meaning: ": 너무 예쁘다.", example: "ex. A(외국인): 넘흐입흐네여~ \nB : 감사합니다 ㅎㅎ \nA(외국인): 넘흐!(농협)입흐네여(은행)!"),
-            WordEntry(title: "3. H워얼V [MZ]", meaning: ": 사랑해.", example: "ex. 널 너무 H워얼V해. 너와 함께 시간을 보내는 게 너무 행복해."),
-            WordEntry(title: "4. 킹받드라슈 [MZ]", meaning: ": 열받는다.", example: "ex. 하 나 숙제 안해와서 엄청 혼났어. 개킹받드라슈."),
-            WordEntry(title: "5. kg받네 [MZ]", meaning: ": 열받는다.", example: "ex. 아 진짜 얘 깝죽거리는 것 좀 봐. kg받네."),
-            WordEntry(title: "6. 점메추/저메추 [MZ]", meaning: ": 점심메뉴추천/저녁메뉴추천", example: "ex. 점심은 뭐 먹을까? 점메추 좀 해줄래?"),
-            WordEntry(title: "7. 웃안웃 [MZ]", meaning: ": 웃긴데 안 웃긴다.", example: "ex. 그 영화, 웃안웃한 장면도 많아서 웃으면서 봤어."),
-            WordEntry(title: "8. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "9. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "10. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "11. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "12. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "13. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "14. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "15. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "16. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "17. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다."),
-            WordEntry(title: "18. 갓생 [MZ]", meaning: ": 부지런하여 타인에게 귀감이 되는 삶", example: "ex. 와 저 선배 진짜 갓생산다.")
-        ]
+    // Dic API
+    func getDicInfo() {
+        let urlString = "https://transmeme.store/dictionary"
+        guard let url = URL(string: urlString) else {
+            print("유효하지 않은 URL입니다")
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard error == nil else {
+                DispatchQueue.main.async {
+                    print("오류: \(error!.localizedDescription)")
+                }
+                return
+            }
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    print("데이터가 없습니다")
+                }
+                return
+            }
+            do {
+                let entries = try JSONDecoder().decode([DicInfo].self, from: data)
+                DispatchQueue.main.async {
+                    self?.dictionaryEntries = entries
+                    self?.updateUIWithDictionaryEntries()
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    print("JSON 디코딩 실패: \(error.localizedDescription)")
+                }
+            }
+        }
+        task.resume()
     }
     
+    func updateUIWithDictionaryEntries() {
+        self.dicstackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        for entry in dictionaryEntries {
+            let stackView = createHorizontalStackView(with: entry)
+            self.dicstackView.addArrangedSubview(stackView)
+        }
+    }
+
+    // Button func
     @objc private func arrowButtonTapped() {
         dismiss(animated: true) {
         }
     }
     
-    @objc private func bookmarkButtonTapped() {
-        isBookmarkFilled.toggle()
-        let imageName = isBookmarkFilled ? "fillbookMark" : "bookMark"
-        bookmarkButton.setImage(UIImage(named: imageName), for: .normal)
+    @objc func bookmarkButtonTapped(sender: UIButton) {
+        DispatchQueue.main.async {
+            self.isBookmarkFilled.toggle()
+
+            let imageName = self.isBookmarkFilled ? "fillbookMark" : "bookMark"
+            sender.setImage(UIImage(named: imageName), for: .normal)
+        }
     }
 }

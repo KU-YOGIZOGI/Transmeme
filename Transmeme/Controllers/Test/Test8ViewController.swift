@@ -1,20 +1,20 @@
 //
-//  Test1ViewController.swift
+//  Test8ViewController.swift
 //  Transmeme
 //
-//  Created by 정아현 on 11/8/23.
+//  Created by 정아현 on 11/13/23.
 //
 
 import UIKit
 import SnapKit
 import Then
 
-class Test2ViewController: UIViewController {
+class Test8ViewController: UIViewController {
     let quizView = UIImageView().then {
         $0.image = UIImage(named: "quiz")
     }
     let quiznumLabel = UILabel().then {
-        let fullString = NSMutableAttributedString(string: "Q.2", attributes: [
+        let fullString = NSMutableAttributedString(string: "Q.8", attributes: [
             .font: UIFont(name: "GmarketSansMedium", size: 25)!,
             .foregroundColor: UIColor(red: 222/255.0, green: 222/255.0, blue: 222/255.0, alpha: 1.0)
         ])
@@ -31,7 +31,7 @@ class Test2ViewController: UIViewController {
     let progressBar = UIProgressView().then {
         $0.trackTintColor = UIColor.lightGray
         $0.progressTintColor = UIColor(red: 74/255.0, green: 178/255.0, blue: 255/255.0, alpha: 1.0)
-        $0.progress = 0.2
+        $0.progress = 0.8
         $0.layer.cornerRadius = 5
         $0.clipsToBounds = true
         $0.transform = $0.transform.scaledBy(x: 1, y: 2)
@@ -47,14 +47,14 @@ class Test2ViewController: UIViewController {
         paragraphStyle.alignment = .center
         paragraphStyle.lineSpacing = 6
 
-        let attrString = NSMutableAttributedString(string: "다음 중 '졌잘싸'의 뜻은\n무엇일까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        let attrString = NSMutableAttributedString(string: "다음 중 '애빼시'의 뜻은\n무엇일까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         $0.attributedText = attrString
     }
     let quizButton = UIButton().then {
         $0.setImage(UIImage(named: "quizButton"), for: .normal)
     }
     let quizLabel = UILabel().then {
-        $0.text = "졌지만 잘 싸웠다"
+        $0.text = "애교 빼면 시체"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 18)
         $0.numberOfLines = 0
@@ -66,7 +66,7 @@ class Test2ViewController: UIViewController {
         $0.setImage(UIImage(named: "quizButton"), for: .normal)
     }
     let quizLabel2 = UILabel().then {
-        $0.text = "졌다더니 잘 싸워서 이겼구나?"
+        $0.text = "애를 빼시오"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 18)
         $0.numberOfLines = 0
@@ -95,7 +95,7 @@ class Test2ViewController: UIViewController {
         paragraphStyle.alignment = .center
         paragraphStyle.lineSpacing = 4
 
-        let attrString = NSMutableAttributedString(string: "ex. 대한민국 축구 대표팀 브라질과의 \n결승전에서 1:2 패배. 하지만 졌잘싸.", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        let attrString = NSMutableAttributedString(string: "ex. 너는 애빼시야. 진짜 귀여워.", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         $0.attributedText = attrString
     }
     let nextButton = UIButton().then {
@@ -245,9 +245,11 @@ class Test2ViewController: UIViewController {
         }
     }
     @objc func didTapnextButton(_ sender: Any) {
-        let addVC = Test3ViewController()
+        let addVC = Test9ViewController()
         addVC.modalPresentationStyle = .overFullScreen
         present(addVC, animated: true)
     }
 }
+
+
 
