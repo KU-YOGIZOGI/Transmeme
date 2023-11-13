@@ -5,6 +5,8 @@
 //  Created by 홍서린 on 2023/11/14.
 //
 
+import UIKit
+
 class PaddingLabel: UILabel {
 
     var textInsets = UIEdgeInsets.zero {

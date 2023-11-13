@@ -117,13 +117,14 @@ class TransViewController: UIViewController {
         $0.image = UIImage(named: "translogox1")
     }
     
-    let resultTextLabel = UILabel().then {
+    let resultTextLabel = PaddingLabel().then {
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 20
         $0.layer.borderColor = UIColor(r:173, g:170, b:170).cgColor
         $0.textColor = UIColor(r: 0, g: 0, b: 0)
         $0.font = UIFont(name: "GmarketSansLight", size: 15)
         $0.numberOfLines = 0
+        $0.textInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
     }
     
     let transBtn = UIButton().then {
@@ -387,7 +388,7 @@ class TransViewController: UIViewController {
         slangWordGenLabel.snp.makeConstraints {
             $0.top.equalTo(MeanView.snp.top).offset(10)
             $0.leading.equalTo(slangWordLabel.snp.trailing).offset(0)
-            $0.width.equalTo(15)
+            $0.width.equalTo(25)
             $0.bottom.equalTo(lineView3.snp.top).offset(-5)
         }
     }
@@ -400,7 +401,9 @@ class TransViewController: UIViewController {
             self.slangWordGenLabel.text = translationResponse.generation
             self.meaningSection.contentLabel.text = translationResponse.meaning
             self.exampleSection.contentLabel.text = translationResponse.example
-            self.similarWordsSection.contentLabel.text = translationResponse.similarWords + " " + translationResponse.similarWordsGen
+            self.similarWordsSection.contentLabel.text = translationResponse.similarWords
+            self.similarWordsSection.secondContentLabel.text = translationResponse.similarWordsGen
+
         }
     }
     
