@@ -108,4 +108,6 @@ class BasePaddingLabel: UILabel {
         
         return contentSize
     }
+    
+    
 }
