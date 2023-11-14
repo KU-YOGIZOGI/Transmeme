@@ -98,7 +98,7 @@ class TransViewController: UIViewController {
         $0.textColor = UIColor(r: 0, g: 0, b: 0)
         $0.font = UIFont(name: "GmarketSansLight", size: 15)
         $0.insetX = 12
-        $0.becomeFirstResponder()
+       // $0.becomeFirstResponder() : 화면 시작시 자동으로 키보드 올라옴
     }
     
     let lineView = UIView().then {
@@ -124,7 +124,26 @@ class TransViewController: UIViewController {
         $0.textColor = UIColor(r: 0, g: 0, b: 0)
         $0.font = UIFont(name: "GmarketSansLight", size: 15)
         $0.numberOfLines = 0
-        $0.textInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        $0.textInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 0)
+        $0.adjustsFontSizeToFitWidth = true
+        $0.minimumScaleFactor = 0.5
+
+    }
+    
+    func adjustFontSizeForLabel(_ label: UILabel) {
+        let textCount = label.text?.count ?? 0
+        let maxCharacters: Int = 20  // 최대 문자 수 설정
+        let defaultFontSize: CGFloat = 15  // 기본 폰트 크기
+        let minimumFontSize: CGFloat = 12  // 최소 폰트 크기
+
+        if textCount > maxCharacters {
+            let scaleFactor = CGFloat(maxCharacters) / CGFloat(textCount)
+            let scaledFontSize = max(defaultFontSize * scaleFactor, minimumFontSize)
+            label.font = UIFont(name: "GmarketSansLight", size: scaledFontSize)
+        } else {
+            label.font = UIFont(name: "GmarketSansLight", size: defaultFontSize)
+        }
+        
     }
     
     let transBtn = UIButton().then {
@@ -133,7 +152,6 @@ class TransViewController: UIViewController {
         $0.setTitle("번역하기", for: .normal)
         $0.titleLabel?.font = UIFont(name: "GmarketSansMedium", size: 11)
         $0.layer.cornerRadius = 5 // 테두리 둥글기 설정
-        //        $0.addTarget(TransViewController.self, action: #selector(transBtnTapped), for: .touchUpInside)
         $0.addTarget(self, action: #selector(transBtnTapped), for: .touchUpInside)
 
     }
@@ -255,7 +273,7 @@ class TransViewController: UIViewController {
         
         barImage.snp.makeConstraints{
             $0.top.equalTo(subTitleLabel.snp.bottom).offset(20)
-            $0.leading.equalTo(44)
+            $0.leading.equalTo(36)
             $0.width.equalTo(2)
             $0.height.equalTo(15)
         }
@@ -326,7 +344,7 @@ class TransViewController: UIViewController {
             $0.top.equalTo(meanLabel.snp.bottom).offset(10)
             $0.leading.equalTo(barImage2)
             $0.trailing.equalTo(resultTextLabel.snp.trailing)
-            $0.height.equalTo(190)
+            $0.height.equalTo(200)
             
         }
         
@@ -339,7 +357,7 @@ class TransViewController: UIViewController {
         
         
     }
-    
+ 
     
     private let meaningSection = TransSectionView(title: "• 의미", content: " ")
     private let exampleSection = TransSectionView(title: "• 예문", content: " ")
@@ -355,13 +373,13 @@ class TransViewController: UIViewController {
             $0.top.equalTo(lineView3.snp.bottom).offset(8)
             $0.leading.equalTo(MeanView.snp.leading).offset(10)
             $0.trailing.equalTo(MeanView.snp.trailing).offset(-5)
-            $0.height.equalTo(55)
+            $0.height.equalTo(65)
         }
         
         exampleSection.snp.makeConstraints {
             $0.top.equalTo(meaningSection.snp.bottom).offset(5)
             $0.leading.trailing.equalTo(meaningSection)
-            $0.height.equalTo(40)
+            $0.height.equalTo(45)
             
         }
         
@@ -397,6 +415,17 @@ class TransViewController: UIViewController {
     func updateSections(with translationResponse: TranslationResponse) {
         DispatchQueue.main.async {
             self.resultTextLabel.text = translationResponse.standardWord
+            self.adjustFontSizeForLabel(self.resultTextLabel)
+            let textCount = translationResponse.standardWord.count
+            let maxCharacters: Int = 30
+            if textCount > maxCharacters {
+                // 글자 수가 많을 때는 top 패딩을 늘린다
+                self.resultTextLabel.textInsets = UIEdgeInsets(top: 20, left: 10, bottom: 5, right: 10)
+                // lineView2 위치 조정도 필요하다면 여기에 추가
+            } else {
+                // 글자 수가 적을 때는 기본 패딩을 유지한다
+                self.resultTextLabel.textInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+            }
             self.slangWordLabel.text = self.searchTextField.text
             self.slangWordGenLabel.text = translationResponse.generation
             self.meaningSection.contentLabel.text = translationResponse.meaning
@@ -423,6 +452,12 @@ class TransViewController: UIViewController {
                     print("번역 성공: \(response)")
                 } else {
                     self?.resultTextLabel.text = "결과 없음"
+                    self?.slangWordLabel.text = " "
+                    self?.slangWordGenLabel.text = " "
+                    self?.meaningSection.contentLabel.text = " "
+                    self?.exampleSection.contentLabel.text = " "
+                    self?.similarWordsSection.contentLabel.text = " "
+                    self?.similarWordsSection.secondContentLabel.text = " "
                     print("번역 실패")
                 }
             }

@@ -38,7 +38,11 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         $0.clearButtonMode = .whileEditing
         $0.textColor = UIColor.black
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     let generationButton = UIButton().then {
         $0.setImage(UIImage(named: "dicgenButton"), for: .normal)
     }
@@ -67,30 +71,6 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     let scrollView = UIScrollView()
     let bookmarkButton = UIButton().then {
         $0.setImage(UIImage(named: "bookMark"), for: .normal)
-    }
-    let name = UILabel().then {
-        $0.text = "1. 안습"
-        $0.textColor = UIColor.black
-        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-        $0.adjustsFontSizeToFitWidth = true
-    }
-    let generation = UILabel().then {
-        $0.text = "[X]"
-        $0.textColor = UIColor.black
-        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-        $0.adjustsFontSizeToFitWidth = true
-    }
-    let script = UILabel().then {
-        $0.text = ": 안타깝거나 불쌍해 눈물이 남."
-        $0.textColor = UIColor.black
-        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-        $0.adjustsFontSizeToFitWidth = true
-    }
-    let example = UILabel().then {
-        $0.text = "ex. 이번 학기 학점 안습이네. 정말 안타깝다."
-        $0.textColor = UIColor.gray
-        $0.font = UIFont(name: "GmarketSansMedium", size: 14)
-        $0.numberOfLines = 0
     }
     let dicstackView = UIStackView().then {
         $0.axis = .vertical
