@@ -124,7 +124,25 @@ class TransViewController: UIViewController {
         $0.textColor = UIColor(r: 0, g: 0, b: 0)
         $0.font = UIFont(name: "GmarketSansLight", size: 15)
         $0.numberOfLines = 0
-        $0.textInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+        $0.textInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 0)
+        $0.adjustsFontSizeToFitWidth = true
+        $0.minimumScaleFactor = 0.5
+
+    }
+    
+    func adjustFontSizeForLabel(_ label: UILabel) {
+        let textCount = label.text?.count ?? 0
+        let maxCharacters: Int = 30  // 최대 문자 수 설정
+        let defaultFontSize: CGFloat = 15  // 기본 폰트 크기
+        let minimumFontSize: CGFloat = 12  // 최소 폰트 크기
+
+        if textCount > maxCharacters {
+            let scaleFactor = CGFloat(maxCharacters) / CGFloat(textCount)
+            let scaledFontSize = max(defaultFontSize * scaleFactor, minimumFontSize)
+            label.font = UIFont(name: "GmarketSansLight", size: scaledFontSize)
+        } else {
+            label.font = UIFont(name: "GmarketSansLight", size: defaultFontSize)
+        }
     }
     
     let transBtn = UIButton().then {
@@ -326,7 +344,7 @@ class TransViewController: UIViewController {
             $0.top.equalTo(meanLabel.snp.bottom).offset(10)
             $0.leading.equalTo(barImage2)
             $0.trailing.equalTo(resultTextLabel.snp.trailing)
-            $0.height.equalTo(190)
+            $0.height.equalTo(200)
             
         }
         
@@ -339,7 +357,7 @@ class TransViewController: UIViewController {
         
         
     }
-    
+ 
     
     private let meaningSection = TransSectionView(title: "• 의미", content: " ")
     private let exampleSection = TransSectionView(title: "• 예문", content: " ")
@@ -355,7 +373,7 @@ class TransViewController: UIViewController {
             $0.top.equalTo(lineView3.snp.bottom).offset(8)
             $0.leading.equalTo(MeanView.snp.leading).offset(10)
             $0.trailing.equalTo(MeanView.snp.trailing).offset(-5)
-            $0.height.equalTo(55)
+            $0.height.equalTo(65)
         }
         
         exampleSection.snp.makeConstraints {
@@ -397,6 +415,7 @@ class TransViewController: UIViewController {
     func updateSections(with translationResponse: TranslationResponse) {
         DispatchQueue.main.async {
             self.resultTextLabel.text = translationResponse.standardWord
+            self.adjustFontSizeForLabel(self.resultTextLabel)
             self.slangWordLabel.text = self.searchTextField.text
             self.slangWordGenLabel.text = translationResponse.generation
             self.meaningSection.contentLabel.text = translationResponse.meaning
