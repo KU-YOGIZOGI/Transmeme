@@ -381,13 +381,13 @@ class TransViewController: UIViewController {
         slangWordLabel.snp.makeConstraints {
             $0.top.equalTo(MeanView.snp.top).offset(5)
             $0.leading.equalTo(MeanView.snp.leading).offset(10)
-            $0.width.equalTo(45)
+            $0.trailing.equalTo(slangWordGenLabel.snp.leading)
             $0.bottom.equalTo(lineView3.snp.top).offset(-5)
         }
         
         slangWordGenLabel.snp.makeConstraints {
             $0.top.equalTo(MeanView.snp.top).offset(10)
-            $0.leading.equalTo(slangWordLabel.snp.trailing).offset(0)
+            $0.leading.equalTo(slangWordLabel.snp.trailing)
             $0.width.equalTo(25)
             $0.bottom.equalTo(lineView3.snp.top).offset(-5)
         }
