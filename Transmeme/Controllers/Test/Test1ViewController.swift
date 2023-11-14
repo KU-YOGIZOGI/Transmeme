@@ -316,6 +316,6 @@ class Test1ViewController: UIViewController {
     @objc func didTapNextButton(_ sender: Any) {
         let addVC = Test2ViewController()
         addVC.modalPresentationStyle = .overFullScreen
-        present(addVC, animated: true)
+        self.navigationController?.pushViewController(addVC, animated: true)
     }
 }
