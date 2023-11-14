@@ -452,6 +452,12 @@ class TransViewController: UIViewController {
                     print("번역 성공: \(response)")
                 } else {
                     self?.resultTextLabel.text = "결과 없음"
+                    self?.slangWordLabel.text = " "
+                    self?.slangWordGenLabel.text = " "
+                    self?.meaningSection.contentLabel.text = " "
+                    self?.exampleSection.contentLabel.text = " "
+                    self?.similarWordsSection.contentLabel.text = " "
+                    self?.similarWordsSection.secondContentLabel.text = " "
                     print("번역 실패")
                 }
             }
