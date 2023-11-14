@@ -135,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				1A7450052AF66B39007B22B2 /* DicViewController.swift */,
-				1AE474A42AFE626300656093 /* DicService.swift */,
 			);
 			path = Dic;
 			sourceTree = "<group>";
@@ -218,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				7A695C672AFE49CE00A30281 /* TransService.swift */,
+				1AE474A42AFE626300656093 /* DicService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
