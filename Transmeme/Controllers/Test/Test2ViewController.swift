@@ -146,7 +146,7 @@ class Test2ViewController: UIViewController {
         quizView.snp.makeConstraints { make in
             make.width.equalTo(350)
             make.height.equalTo(500)
-            make.top.equalTo(safeArea.snp.top).offset(194)
+            make.top.equalTo(safeArea.snp.top).offset(175)
             make.centerX.equalTo(safeArea)
         }
         quiznumLabel.snp.makeConstraints { make in

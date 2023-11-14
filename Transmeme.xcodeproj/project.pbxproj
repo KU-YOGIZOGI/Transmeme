@@ -17,7 +17,6 @@
 		1A061DBC2B0212CB006E5753 /* TestEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A061DBB2B0212CB006E5753 /* TestEndViewController.swift */; };
 		1A7450042AF669DF007B22B2 /* PreviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7450032AF669DF007B22B2 /* PreviewExtension.swift */; };
 		1A7450062AF66B39007B22B2 /* DicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7450052AF66B39007B22B2 /* DicViewController.swift */; };
-		1AE474A52AFE626300656093 /* DicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE474A42AFE626300656093 /* DicService.swift */; };
 		1AE474A72AFFC95800656093 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE474A62AFFC95800656093 /* Splash.png */; };
 		1AF7C9392AFAC04300D7AA47 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C9372AFA9A0700D7AA47 /* Test1ViewController.swift */; };
 		1AF7C93B2AFB7B2400D7AA47 /* TestCorrectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C93A2AFB7B2400D7AA47 /* TestCorrectViewController.swift */; };
@@ -54,7 +53,6 @@
 		1A061DBB2B0212CB006E5753 /* TestEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEndViewController.swift; sourceTree = "<group>"; };
 		1A7450032AF669DF007B22B2 /* PreviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewExtension.swift; sourceTree = "<group>"; };
 		1A7450052AF66B39007B22B2 /* DicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicViewController.swift; sourceTree = "<group>"; };
-		1AE474A42AFE626300656093 /* DicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicService.swift; sourceTree = "<group>"; };
 		1AE474A62AFFC95800656093 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = ../../Splash.png; sourceTree = "<group>"; };
 		1AF7C9372AFA9A0700D7AA47 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1ViewController.swift; sourceTree = "<group>"; };
 		1AF7C93A2AFB7B2400D7AA47 /* TestCorrectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCorrectViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				1A7450052AF66B39007B22B2 /* DicViewController.swift */,
-				1AE474A42AFE626300656093 /* DicService.swift */,
 			);
 			path = Dic;
 			sourceTree = "<group>";
@@ -395,7 +392,6 @@
 				1A061DBA2B021279006E5753 /* Test10ViewController.swift in Sources */,
 				7A695C612AFB97B600A30281 /* DicModel.swift in Sources */,
 				7A84B48C2AB7E97700845EF4 /* SceneDelegate.swift in Sources */,
-				1AE474A52AFE626300656093 /* DicService.swift in Sources */,
 				7A70BE222AF66456008BC964 /* UIColor+Extension.swift in Sources */,
 				1A061DB22B02125D006E5753 /* Test6ViewController.swift in Sources */,
 				1A061DB02B021057006E5753 /* Test5ViewController.swift in Sources */,
