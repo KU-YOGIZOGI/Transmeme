@@ -72,19 +72,19 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         $0.text = "1. 안습"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-        $0.numberOfLines = 1
+        $0.adjustsFontSizeToFitWidth = true
     }
     let generation = UILabel().then {
         $0.text = "[X]"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-        $0.numberOfLines = 1
+        $0.adjustsFontSizeToFitWidth = true
     }
     let script = UILabel().then {
         $0.text = ": 안타깝거나 불쌍해 눈물이 남."
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-        $0.numberOfLines = 1
+        $0.adjustsFontSizeToFitWidth = true
     }
     let example = UILabel().then {
         $0.text = "ex. 이번 학기 학점 안습이네. 정말 안타깝다."
@@ -258,13 +258,13 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             $0.text = entry.name
             $0.textColor = UIColor.black
             $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-            $0.numberOfLines = 1
+            $0.adjustsFontSizeToFitWidth = true
         }
         let generation = UILabel().then {
             $0.text = entry.generation
             $0.textColor = UIColor(red: 125/255.0, green: 125/255.0, blue: 125/255.0, alpha: 1.0)
             $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-            $0.numberOfLines = 1
+            $0.adjustsFontSizeToFitWidth = true
         }
         let script = UILabel().then {
             $0.text = entry.script
@@ -288,9 +288,11 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             $0.distribution = .fillProportionally
         }
         name.snp.makeConstraints { make in
+            make.height.equalTo(20)
             make.leading.equalToSuperview()
         }
         generation.snp.makeConstraints { make in
+            make.centerY.equalTo(name)
             make.leading.equalTo(name.snp.trailing).offset(10)
         }
         let verticalStackView = UIStackView(arrangedSubviews: [titleAndGenerationStackView, script, example]).then {
@@ -492,11 +494,9 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
     @objc private func arrowButtonTapped() {
         if isSortedAscending {
-            // 현재 오름차순 정렬 상태이면, 원래 순서로 돌아감
             getDicInfo()
             isSortedAscending = false
         } else {
-            // 현재 기본 순서이면, 오름차순으로 정렬
             getSortedDicInfo()
             isSortedAscending = true
         }
