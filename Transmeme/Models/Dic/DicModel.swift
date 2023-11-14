@@ -15,3 +15,4 @@ struct DicInfo: Codable {
     let example: String
 }
 
+

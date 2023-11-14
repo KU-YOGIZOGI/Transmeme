@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
     var dictionaryEntries: [DicInfo] = []
     var isBookmarkFilled = false
@@ -96,7 +96,8 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-
+        
+        searchTextField.delegate = self
         self.view.addSubview(topLabel)
         self.view.addSubview(searchImage)
         self.view.addSubview(searchButton)
@@ -116,6 +117,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         arrowButton.addTarget(self, action: #selector(arrowButtonTapped), for: .touchUpInside)
         setupDropdownTableView()
         generationButton.addTarget(self, action: #selector(toggleDropdown), for: .touchUpInside)
+        searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         
         getDicInfo()
         
@@ -184,7 +186,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             make.width.equalTo(1)
             make.top.equalTo(grayLine.snp.bottom).offset(15)
             make.leading.equalTo(safeArea.snp.leading).offset(84)
-            make.bottom.equalTo(safeArea)
+            make.bottom.equalTo(safeArea.snp.bottom).offset(-20)
         }
         horizontalLine.snp.makeConstraints { make in
             make.height.equalTo(1)
@@ -222,9 +224,20 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        generationLabel.text = dropdownOptions[indexPath.row]
+        let selectedOption = dropdownOptions[indexPath.row]
+        generationLabel.text = selectedOption
+        
+        switch selectedOption {
+        case "X세대":
+            getDicInfoForGeneration("(x)")
+        case "MZ세대":
+            getDicInfoForGeneration("(mz)")
+        default:
+            getDicInfo()
+        }
         toggleDropdown()
     }
+
 
     @objc func toggleDropdown() {
         UIView.animate(withDuration: 0.3) {
@@ -336,9 +349,16 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
 
-    // Dic API
-    func getDicInfo() {
-        let urlString = "https://transmeme.store/dictionary"
+    func getDicInfo(searchTerm: String? = nil) {
+        let baseString = "https://transmeme.store/dictionary"
+        let urlString: String
+        
+        if let searchTerm = searchTerm, !searchTerm.isEmpty {
+            urlString = "\(baseString)?name=\(searchTerm.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"
+        } else {
+            urlString = baseString
+        }
+        
         guard let url = URL(string: urlString) else {
             print("유효하지 않은 URL입니다")
             return
@@ -364,8 +384,79 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     self?.updateUIWithDictionaryEntries()
                 }
             } catch {
+                print("JSON 디코딩 실패: \(error)")
+                if let json = String(data: data, encoding: .utf8) {
+                    print("받은 JSON 데이터: \(json)")
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func getSortedDicInfo() {
+        let urlString = "https://transmeme.store/dictionary/sorted/alphabetically"
+        guard let url = URL(string: urlString) else {
+            print("유효하지 않은 URL입니다")
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard error == nil else {
                 DispatchQueue.main.async {
-                    print("JSON 디코딩 실패: \(error.localizedDescription)")
+                    print("오류: \(error!.localizedDescription)")
+                }
+                return
+            }
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    print("데이터가 없습니다")
+                }
+                return
+            }
+            do {
+                let sortedEntries = try JSONDecoder().decode([DicInfo].self, from: data)
+                DispatchQueue.main.async {
+                    self?.dictionaryEntries = sortedEntries
+                    self?.updateUIWithDictionaryEntries()
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    print("JSON 디코딩 실패: \(error)")
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func getDicInfoForGeneration(_ generation: String) {
+        let urlString = "https://transmeme.store/dictionary/generation?generation=\(generation)"
+        guard let url = URL(string: urlString) else {
+            print("유효하지 않은 URL입니다")
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard error == nil else {
+                DispatchQueue.main.async {
+                    print("오류: \(error!.localizedDescription)")
+                }
+                return
+            }
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    print("데이터가 없습니다")
+                }
+                return
+            }
+            do {
+                let generationEntries = try JSONDecoder().decode([DicInfo].self, from: data)
+                DispatchQueue.main.async {
+                    self?.dictionaryEntries = generationEntries
+                    self?.updateUIWithDictionaryEntries()
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    print("JSON 디코딩 실패: \(error)")
                 }
             }
         }
@@ -379,11 +470,21 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             self.dicstackView.addArrangedSubview(stackView)
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchButtonTapped()
+        textField.resignFirstResponder()
+        return true
+    }
 
-    // Button func
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        getDicInfo()
+        textField.resignFirstResponder()
+        return true
+    }
+
     @objc private func arrowButtonTapped() {
-        dismiss(animated: true) {
-        }
+        getSortedDicInfo()
     }
     
     @objc func bookmarkButtonTapped(sender: UIButton) {
@@ -393,5 +494,10 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             let imageName = self.isBookmarkFilled ? "fillbookMark" : "bookMark"
             sender.setImage(UIImage(named: imageName), for: .normal)
         }
+    }
+    
+    @objc func searchButtonTapped() {
+        let searchTerm = searchTextField.text ?? ""
+        getDicInfo(searchTerm: searchTerm.isEmpty ? nil : searchTerm)
     }
 }
