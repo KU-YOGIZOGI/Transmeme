@@ -1,9 +1,5 @@
 PODS:
   - Alamofire (5.8.1)
-  - Kingfisher (7.10.0)
-  - NMapsGeometry (1.0.1)
-  - NMapsMap (3.17.0):
-    - NMapsGeometry
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
   - RxAlamofire/Core (6.1.1):
@@ -20,8 +16,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - Kingfisher
-  - NMapsMap
   - RxAlamofire
   - RxCocoa (~> 6.5.0)
   - RxSwift (~> 6.5.0)
@@ -31,9 +25,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Kingfisher
-    - NMapsGeometry
-    - NMapsMap
     - RxAlamofire
     - RxCocoa
     - RxRelay
@@ -43,9 +34,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
-  Kingfisher: a18f05d3b6d37d8650ee4a3e61d57a28fc6207f6
-  NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
-  NMapsMap: a5b909a31b6f3d27a670f6eb2ddc913c38975474
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
@@ -53,6 +41,6 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: 747c8dee326da3b014614b54c42b66e682bda136
+PODFILE CHECKSUM: 492c1848b612957a84738110f311f5a4d3202392
 
 COCOAPODS: 1.12.1
