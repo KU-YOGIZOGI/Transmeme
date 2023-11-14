@@ -31,7 +31,7 @@ class TransViewController: UIViewController {
         $0.textColor = .white
         $0.numberOfLines = 2
         $0.font = UIFont(name: "GmarketSansBold", size: 34)
-
+        
         let underlineColor = UIColor(r: 58,g: 125,b: 253)
         
         let attributedString = NSMutableAttributedString(string: $0.text!)
@@ -39,7 +39,7 @@ class TransViewController: UIViewController {
         attributedString.addAttribute(.underlineColor, value: underlineColor, range: NSRange(location: 0, length: attributedString.length))
         $0.attributedText = attributedString
         $0.sizeToFit()
-
+        
     }
     
     let highLightLineView = UIView().then {
@@ -117,10 +117,14 @@ class TransViewController: UIViewController {
         $0.image = UIImage(named: "translogox1")
     }
     
-    let resultTextLabel = UILabel().then {
+    let resultTextLabel = PaddingLabel().then {
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 20
         $0.layer.borderColor = UIColor(r:173, g:170, b:170).cgColor
+        $0.textColor = UIColor(r: 0, g: 0, b: 0)
+        $0.font = UIFont(name: "GmarketSansLight", size: 15)
+        $0.numberOfLines = 0
+        $0.textInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
     }
     
     let transBtn = UIButton().then {
@@ -129,12 +133,14 @@ class TransViewController: UIViewController {
         $0.setTitle("번역하기", for: .normal)
         $0.titleLabel?.font = UIFont(name: "GmarketSansMedium", size: 11)
         $0.layer.cornerRadius = 5 // 테두리 둥글기 설정
+        //        $0.addTarget(TransViewController.self, action: #selector(transBtnTapped), for: .touchUpInside)
         $0.addTarget(self, action: #selector(transBtnTapped), for: .touchUpInside)
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            view.endEditing(true)
-        }
+        view.endEditing(true)
+    }
     
     let barImage2 = UIImageView().then {
         $0.contentMode = .scaleAspectFill
@@ -148,25 +154,37 @@ class TransViewController: UIViewController {
         $0.font = UIFont(name: "GmarketSansMedium", size: 17)
     }
     
-    private let meanTextLabel = BasePaddingLabel(padding: UIEdgeInsets(top: 2, left: 12, bottom: 2, right: 4)).then {
-        $0.text = "단어를 검색하면 해설이 나와요!"
-        $0.textColor = UIColor(r: 227, g: 227, b: 227)
-        $0.font = UIFont(name: "GmarketSansLight", size: 15)
-        $0.layer.borderWidth = 1
-        $0.layer.cornerRadius = 20
+    private let MeanView: UIView = UIView().then {
+        
+        $0.backgroundColor = .clear
+        $0.layer.borderWidth = 1.0
+        $0.layer.borderColor = UIColor.black.cgColor
+        $0.layer.cornerRadius = 10
         $0.layer.borderColor = UIColor(r:173, g:170, b:170).cgColor
-        $0.numberOfLines = 10
+    }
     
+    let slangWordLabel = UILabel().then {
+        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
+        $0.textColor = .black
+    }
+    let slangWordGenLabel = UILabel().then {
+        $0.font = UIFont(name: "GmarketSansMedium", size: 10)
+        $0.textColor = UIColor(r: 152, g: 152, b: 152)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
+        setupMeanSections()
+        setupMeanViewLabels()
         
     }
-
+    
+    
     func setup(){
-
+        
         self.view.backgroundColor = .white
         self.topview.backgroundColor = UIColor(r:0, g:9, b:181)
         view.addSubview(topview)
@@ -183,14 +201,16 @@ class TransViewController: UIViewController {
         view.addSubview(transLogo)
         view.addSubview(resultTextLabel)
         view.addSubview(lineView2)
-        searchTextField.addSubview(transBtn)
+        view.addSubview(transBtn)
         view.addSubview(barImage2)
         view.addSubview(meanLabel)
-        view.addSubview(meanTextLabel)
+        self.view.addSubview(MeanView)
+        //  MeanTextView.text = "단어를 검색하면 해설이 나와요!"
         view.addSubview(lineView3)
+
         
         topview.snp.makeConstraints{
-            $0.height.equalTo(300)
+            $0.height.equalTo(280)
             $0.top.leading.trailing.equalTo(0)
         }
         
@@ -252,7 +272,7 @@ class TransViewController: UIViewController {
             $0.leading.equalTo(barImage)
             $0.trailing.equalTo(transLogo.snp.leading).offset(-10)
             $0.width.equalTo(132)
-            $0.height.equalTo(107)
+            $0.height.equalTo(100)
         }
         
         transLogo.snp.makeConstraints{
@@ -273,7 +293,7 @@ class TransViewController: UIViewController {
             $0.top.equalTo(searchTextField)
             $0.leading.equalTo(transLogo.snp.trailing).offset(15)
             $0.width.equalTo(132)
-            $0.height.equalTo(107)
+            $0.height.equalTo(100)
         }
         lineView2.snp.makeConstraints {
             $0.leading.equalTo(resultTextLabel.snp.leading).offset(10)
@@ -302,32 +322,112 @@ class TransViewController: UIViewController {
             $0.height.equalTo(15)
         }
         
-        meanTextLabel.snp.makeConstraints{
+        MeanView.snp.makeConstraints {
             $0.top.equalTo(meanLabel.snp.bottom).offset(10)
             $0.leading.equalTo(barImage2)
             $0.trailing.equalTo(resultTextLabel.snp.trailing)
-            $0.height.equalTo(150)
+            $0.height.equalTo(190)
+            
         }
         
         lineView3.snp.makeConstraints {
             $0.leading.equalTo(lineView.snp.leading)
             $0.trailing.equalTo(lineView2.snp.trailing)
-            $0.top.equalTo(meanTextLabel.snp.top).offset(40)
+            $0.top.equalTo(MeanView.snp.top).offset(32)
             $0.height.equalTo(1)
+        }
+        
+        
+    }
+    
+    
+    private let meaningSection = TransSectionView(title: "• 의미", content: " ")
+    private let exampleSection = TransSectionView(title: "• 예문", content: " ")
+    private let similarWordsSection = TransSectionViewWithTwoLabels(title: " • 다른 세대 유사 단어", firstContent: " ",secondContent: " ")
+    
+    private func setupMeanSections() {
+        
+        view.addSubview(meaningSection)
+        view.addSubview(exampleSection)
+        view.addSubview(similarWordsSection)
+        
+        meaningSection.snp.makeConstraints {
+            $0.top.equalTo(lineView3.snp.bottom).offset(8)
+            $0.leading.equalTo(MeanView.snp.leading).offset(10)
+            $0.trailing.equalTo(MeanView.snp.trailing).offset(-5)
+            $0.height.equalTo(55)
+        }
+        
+        exampleSection.snp.makeConstraints {
+            $0.top.equalTo(meaningSection.snp.bottom).offset(5)
+            $0.leading.trailing.equalTo(meaningSection)
+            $0.height.equalTo(40)
+            
+        }
+        
+        similarWordsSection.snp.makeConstraints {
+            $0.top.equalTo(exampleSection.snp.bottom).offset(5)
+            $0.leading.trailing.equalTo(meaningSection)
+            $0.bottom.equalTo(MeanView.snp.bottom).offset(-5)
         }
     }
     
-        @objc func transBtnTapped(){
+    func setupMeanViewLabels() {
         
-            resultTextLabel.text = "   완전"
-            resultTextLabel.textColor = UIColor(r: 0, g: 0, b: 0)
-            resultTextLabel.font = UIFont(name: "GmarketSansLight", size: 15)
-            
-            meanTextLabel.text = "오나전(Z)\n\n\n'오나전'은 '완전'의 컴퓨터 자판 오타다.\n휴대전화와 컴퓨터 자판으로 '완전'이라는 글자를 급하게 치다보면 범하기 쉬운 실수에서 비롯됐다."
-            meanTextLabel.textColor = UIColor(r: 0, g: 0, b: 0)
-            meanTextLabel.font = UIFont(name: "GmarketSansLight", size: 15)
+        
+        MeanView.addSubview(slangWordLabel)
+        MeanView.addSubview(slangWordGenLabel)
+        
+        slangWordLabel.snp.makeConstraints {
+            $0.top.equalTo(MeanView.snp.top).offset(5)
+            $0.leading.equalTo(MeanView.snp.leading).offset(10)
+            $0.width.equalTo(45)
+            $0.bottom.equalTo(lineView3.snp.top).offset(-5)
+        }
+        
+        slangWordGenLabel.snp.makeConstraints {
+            $0.top.equalTo(MeanView.snp.top).offset(10)
+            $0.leading.equalTo(slangWordLabel.snp.trailing).offset(0)
+            $0.width.equalTo(25)
+            $0.bottom.equalTo(lineView3.snp.top).offset(-5)
+        }
+    }
+    
+    
+    func updateSections(with translationResponse: TranslationResponse) {
+        DispatchQueue.main.async {
+            self.resultTextLabel.text = translationResponse.standardWord
+            self.slangWordLabel.text = self.searchTextField.text
+            self.slangWordGenLabel.text = translationResponse.generation
+            self.meaningSection.contentLabel.text = translationResponse.meaning
+            self.exampleSection.contentLabel.text = translationResponse.example
+            self.similarWordsSection.contentLabel.text = translationResponse.similarWords
+            self.similarWordsSection.secondContentLabel.text = translationResponse.similarWordsGen
 
-        } //버튼 누르면 수행할거(나중에 네비게이션으로)
+        }
+    }
+    
+    @objc func transBtnTapped(){
+        
+        guard let slangWord = searchTextField.text, !slangWord.isEmpty else {
+            resultTextLabel.text = "단어를 입력해주세요"
+            
+            return
+        }
+        
+        fetchTranslation(for: slangWord) { [weak self] translationResponse in
+            DispatchQueue.main.async {
+                if let response = translationResponse {
+                    self?.resultTextLabel.text = response.standardWord
+                    self?.updateSections(with: response)
+                    print("번역 성공: \(response)")
+                } else {
+                    self?.resultTextLabel.text = "결과 없음"
+                    print("번역 실패")
+                }
+            }
+        }
+    }
     
 }
 
