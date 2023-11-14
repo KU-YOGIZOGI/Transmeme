@@ -98,7 +98,7 @@ class TransViewController: UIViewController {
         $0.textColor = UIColor(r: 0, g: 0, b: 0)
         $0.font = UIFont(name: "GmarketSansLight", size: 15)
         $0.insetX = 12
-        $0.becomeFirstResponder()
+       // $0.becomeFirstResponder() : 화면 시작시 자동으로 키보드 올라옴
     }
     
     let lineView = UIView().then {
