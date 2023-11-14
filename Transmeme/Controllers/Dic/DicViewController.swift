@@ -30,10 +30,15 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     let searchTextField = UITextField().then {
         $0.borderStyle = .none
-        $0.placeholder = "검색"
+        $0.attributedPlaceholder = NSAttributedString(
+            string: "검색",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
+        )
         $0.returnKeyType = .search
         $0.clearButtonMode = .whileEditing
+        $0.textColor = UIColor.black
     }
+
     let generationButton = UIButton().then {
         $0.setImage(UIImage(named: "dicgenButton"), for: .normal)
     }
