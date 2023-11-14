@@ -506,7 +506,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         DispatchQueue.main.async {
             self.isBookmarkFilled.toggle()
 
-            let imageName = self.isBookmarkFilled ? "fillbookMark" : "bookMark"
+            let imageName = self.isBookmarkFilled ? "fillBookmark" : "bookMark"
             sender.setImage(UIImage(named: imageName), for: .normal)
         }
     }
