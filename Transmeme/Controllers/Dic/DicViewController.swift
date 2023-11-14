@@ -72,30 +72,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     let bookmarkButton = UIButton().then {
         $0.setImage(UIImage(named: "bookMark"), for: .normal)
     }
-    let name = UILabel().then {
-        $0.text = "1. 안습"
-        $0.textColor = UIColor.black
-        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-        $0.numberOfLines = 1
-    }
-    let generation = UILabel().then {
-        $0.text = "[X]"
-        $0.textColor = UIColor.black
-        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-        $0.numberOfLines = 1
-    }
-    let script = UILabel().then {
-        $0.text = ": 안타깝거나 불쌍해 눈물이 남."
-        $0.textColor = UIColor.black
-        $0.font = UIFont(name: "GmarketSansMedium", size: 15)
-        $0.numberOfLines = 1
-    }
-    let example = UILabel().then {
-        $0.text = "ex. 이번 학기 학점 안습이네. 정말 안타깝다."
-        $0.textColor = UIColor.gray
-        $0.font = UIFont(name: "GmarketSansMedium", size: 14)
-        $0.numberOfLines = 0
-    }
+
     let dicstackView = UIStackView().then {
         $0.axis = .vertical
         $0.distribution = .fill
@@ -261,13 +238,13 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let name = UILabel().then {
             $0.text = entry.name
             $0.textColor = UIColor.black
-            $0.font = UIFont(name: "GmarketSansMedium", size: 15)
+            $0.font = UIFont(name: "GmarketSansBold", size: 14)
             $0.numberOfLines = 1
         }
         let generation = UILabel().then {
             $0.text = entry.generation
             $0.textColor = UIColor(red: 125/255.0, green: 125/255.0, blue: 125/255.0, alpha: 1.0)
-            $0.font = UIFont(name: "GmarketSansMedium", size: 15)
+            $0.font = UIFont(name: "GmarketSansMedium", size: 12)
             $0.numberOfLines = 1
         }
         let script = UILabel().then {
