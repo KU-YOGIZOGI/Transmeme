@@ -11,6 +11,7 @@ import Then
 
 class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
+    var isSortedAscending = false
     var dictionaryEntries: [DicInfo] = []
     var isBookmarkFilled = false
     let dropdownTableView = UITableView()
@@ -382,6 +383,7 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 DispatchQueue.main.async {
                     self?.dictionaryEntries = entries
                     self?.updateUIWithDictionaryEntries()
+                    self?.isSortedAscending = false
                 }
             } catch {
                 print("JSON 디코딩 실패: \(error)")
@@ -484,7 +486,15 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     @objc private func arrowButtonTapped() {
-        getSortedDicInfo()
+        if isSortedAscending {
+            // 현재 오름차순 정렬 상태이면, 원래 순서로 돌아감
+            getDicInfo()
+            isSortedAscending = false
+        } else {
+            // 현재 기본 순서이면, 오름차순으로 정렬
+            getSortedDicInfo()
+            isSortedAscending = true
+        }
     }
     
     @objc func bookmarkButtonTapped(sender: UIButton) {

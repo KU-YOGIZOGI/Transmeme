@@ -16,6 +16,7 @@
 		1A061DB82B021270006E5753 /* Test9ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A061DB72B021270006E5753 /* Test9ViewController.swift */; };
 		1A061DBA2B021279006E5753 /* Test10ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A061DB92B021279006E5753 /* Test10ViewController.swift */; };
 		1A061DBC2B0212CB006E5753 /* TestEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A061DBB2B0212CB006E5753 /* TestEndViewController.swift */; };
+		1A061DBE2B03AD96006E5753 /* UILabel+Padding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A061DBD2B03AD96006E5753 /* UILabel+Padding+Extension.swift */; };
 		1A7450042AF669DF007B22B2 /* PreviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7450032AF669DF007B22B2 /* PreviewExtension.swift */; };
 		1A7450062AF66B39007B22B2 /* DicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7450052AF66B39007B22B2 /* DicViewController.swift */; };
 		1AE474A72AFFC95800656093 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE474A62AFFC95800656093 /* Splash.png */; };
@@ -24,7 +25,6 @@
 		1AF7C93D2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C93C2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift */; };
 		1AF7C9432AFBCED400D7AA47 /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C9422AFBCED400D7AA47 /* Test2ViewController.swift */; };
 		1AF7C9452AFBD27300D7AA47 /* Test3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C9442AFBD27300D7AA47 /* Test3ViewController.swift */; };
-		7A090BB52B029278000923F1 /* UILabel+Padding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A090BB42B029278000923F1 /* UILabel+Padding+Extension.swift */; };
 		7A695C4C2AFA9CCA00A30281 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A695C4B2AFA9CCA00A30281 /* TabBarViewController.swift */; };
 		7A695C502AFAA5B700A30281 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A695C4F2AFAA5B700A30281 /* Splash.storyboard */; };
 		7A695C5D2AFB97A100A30281 /* TransModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A695C5C2AFB97A100A30281 /* TransModel.swift */; };
@@ -56,6 +56,7 @@
 		1A061DB72B021270006E5753 /* Test9ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test9ViewController.swift; sourceTree = "<group>"; };
 		1A061DB92B021279006E5753 /* Test10ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test10ViewController.swift; sourceTree = "<group>"; };
 		1A061DBB2B0212CB006E5753 /* TestEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEndViewController.swift; sourceTree = "<group>"; };
+		1A061DBD2B03AD96006E5753 /* UILabel+Padding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Padding+Extension.swift"; sourceTree = "<group>"; };
 		1A7450032AF669DF007B22B2 /* PreviewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewExtension.swift; sourceTree = "<group>"; };
 		1A7450052AF66B39007B22B2 /* DicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicViewController.swift; sourceTree = "<group>"; };
 		1AE474A62AFFC95800656093 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = ../../Splash.png; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		1AF7C93C2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIncorrectViewController.swift; sourceTree = "<group>"; };
 		1AF7C9422AFBCED400D7AA47 /* Test2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2ViewController.swift; sourceTree = "<group>"; };
 		1AF7C9442AFBD27300D7AA47 /* Test3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3ViewController.swift; sourceTree = "<group>"; };
-		7A090BB42B029278000923F1 /* UILabel+Padding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Padding+Extension.swift"; sourceTree = "<group>"; };
 		7A695C4B2AFA9CCA00A30281 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		7A695C4F2AFAA5B700A30281 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		7A695C5C2AFB97A100A30281 /* TransModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransModel.swift; sourceTree = "<group>"; };
@@ -215,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				7A695C672AFE49CE00A30281 /* TransService.swift */,
-				1AE474A42AFE626300656093 /* DicService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -228,7 +227,7 @@
 				7A70BE252AF6648D008BC964 /* InsetTextField.swift */,
 				7A70BE272AF664AB008BC964 /* UILabel+Extension.swift */,
 				1A7450032AF669DF007B22B2 /* PreviewExtension.swift */,
-				7A090BB42B029278000923F1 /* UILabel+Padding+Extension.swift */,
+				1A061DBD2B03AD96006E5753 /* UILabel+Padding+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -424,6 +423,7 @@
 				7A70BE262AF6648D008BC964 /* InsetTextField.swift in Sources */,
 				1A061DAE2B021049006E5753 /* Test4ViewController.swift in Sources */,
 				1AF7C93D2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift in Sources */,
+				1A061DBE2B03AD96006E5753 /* UILabel+Padding+Extension.swift in Sources */,
 				1A061DB42B021263006E5753 /* Test7ViewController.swift in Sources */,
 				1A061DB82B021270006E5753 /* Test9ViewController.swift in Sources */,
 			);
