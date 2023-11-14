@@ -255,7 +255,7 @@ class TransViewController: UIViewController {
         
         barImage.snp.makeConstraints{
             $0.top.equalTo(subTitleLabel.snp.bottom).offset(20)
-            $0.leading.equalTo(44)
+            $0.leading.equalTo(36)
             $0.width.equalTo(2)
             $0.height.equalTo(15)
         }
@@ -361,7 +361,7 @@ class TransViewController: UIViewController {
         exampleSection.snp.makeConstraints {
             $0.top.equalTo(meaningSection.snp.bottom).offset(5)
             $0.leading.trailing.equalTo(meaningSection)
-            $0.height.equalTo(40)
+            $0.height.equalTo(45)
             
         }
         
