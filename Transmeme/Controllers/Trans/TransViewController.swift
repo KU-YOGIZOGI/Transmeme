@@ -132,7 +132,7 @@ class TransViewController: UIViewController {
     
     func adjustFontSizeForLabel(_ label: UILabel) {
         let textCount = label.text?.count ?? 0
-        let maxCharacters: Int = 30  // 최대 문자 수 설정
+        let maxCharacters: Int = 20  // 최대 문자 수 설정
         let defaultFontSize: CGFloat = 15  // 기본 폰트 크기
         let minimumFontSize: CGFloat = 12  // 최소 폰트 크기
 
@@ -143,6 +143,7 @@ class TransViewController: UIViewController {
         } else {
             label.font = UIFont(name: "GmarketSansLight", size: defaultFontSize)
         }
+        
     }
     
     let transBtn = UIButton().then {
@@ -151,7 +152,6 @@ class TransViewController: UIViewController {
         $0.setTitle("번역하기", for: .normal)
         $0.titleLabel?.font = UIFont(name: "GmarketSansMedium", size: 11)
         $0.layer.cornerRadius = 5 // 테두리 둥글기 설정
-        //        $0.addTarget(TransViewController.self, action: #selector(transBtnTapped), for: .touchUpInside)
         $0.addTarget(self, action: #selector(transBtnTapped), for: .touchUpInside)
 
     }
@@ -416,6 +416,16 @@ class TransViewController: UIViewController {
         DispatchQueue.main.async {
             self.resultTextLabel.text = translationResponse.standardWord
             self.adjustFontSizeForLabel(self.resultTextLabel)
+            let textCount = translationResponse.standardWord.count
+            let maxCharacters: Int = 30
+            if textCount > maxCharacters {
+                // 글자 수가 많을 때는 top 패딩을 늘린다
+                self.resultTextLabel.textInsets = UIEdgeInsets(top: 20, left: 10, bottom: 5, right: 10)
+                // lineView2 위치 조정도 필요하다면 여기에 추가
+            } else {
+                // 글자 수가 적을 때는 기본 패딩을 유지한다
+                self.resultTextLabel.textInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+            }
             self.slangWordLabel.text = self.searchTextField.text
             self.slangWordGenLabel.text = translationResponse.generation
             self.meaningSection.contentLabel.text = translationResponse.meaning

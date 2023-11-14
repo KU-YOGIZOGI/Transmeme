@@ -36,7 +36,7 @@
 		7A70BE222AF66456008BC964 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE212AF66456008BC964 /* UIColor+Extension.swift */; };
 		7A70BE242AF6646F008BC964 /* UITextField+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */; };
 		7A70BE262AF6648D008BC964 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE252AF6648D008BC964 /* InsetTextField.swift */; };
-		7A70BE282AF664AB008BC964 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE272AF664AB008BC964 /* UILabel+Extension.swift */; };
+		7A70BE282AF664AB008BC964 /* UILabel+Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE272AF664AB008BC964 /* UILabel+Font+Extension.swift */; };
 		7A70BE302AF67369008BC964 /* TransViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70BE2F2AF67369008BC964 /* TransViewController.swift */; };
 		7A70BE372AF90D88008BC964 /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A70BE342AF90D88008BC964 /* GmarketSansBold.otf */; };
 		7A70BE382AF90D88008BC964 /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A70BE352AF90D88008BC964 /* GmarketSansLight.otf */; };
@@ -78,7 +78,7 @@
 		7A70BE212AF66456008BC964 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extenstion.swift"; sourceTree = "<group>"; };
 		7A70BE252AF6648D008BC964 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
-		7A70BE272AF664AB008BC964 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		7A70BE272AF664AB008BC964 /* UILabel+Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Font+Extension.swift"; sourceTree = "<group>"; };
 		7A70BE2F2AF67369008BC964 /* TransViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransViewController.swift; sourceTree = "<group>"; };
 		7A70BE342AF90D88008BC964 /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
 		7A70BE352AF90D88008BC964 /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansLight.otf; sourceTree = "<group>"; };
@@ -225,9 +225,9 @@
 				7A70BE212AF66456008BC964 /* UIColor+Extension.swift */,
 				7A70BE232AF6646F008BC964 /* UITextField+Extenstion.swift */,
 				7A70BE252AF6648D008BC964 /* InsetTextField.swift */,
-				7A70BE272AF664AB008BC964 /* UILabel+Extension.swift */,
-				1A7450032AF669DF007B22B2 /* PreviewExtension.swift */,
+				7A70BE272AF664AB008BC964 /* UILabel+Font+Extension.swift */,
 				1A061DBD2B03AD96006E5753 /* UILabel+Padding+Extension.swift */,
+				1A7450032AF669DF007B22B2 /* PreviewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -407,7 +407,7 @@
 				7A70BE242AF6646F008BC964 /* UITextField+Extenstion.swift in Sources */,
 				1A7450062AF66B39007B22B2 /* DicViewController.swift in Sources */,
 				7A84B48A2AB7E97700845EF4 /* AppDelegate.swift in Sources */,
-				7A70BE282AF664AB008BC964 /* UILabel+Extension.swift in Sources */,
+				7A70BE282AF664AB008BC964 /* UILabel+Font+Extension.swift in Sources */,
 				7A70BE302AF67369008BC964 /* TransViewController.swift in Sources */,
 				7A695C682AFE49CE00A30281 /* TransService.swift in Sources */,
 				7A695C6A2AFE4E5000A30281 /* TransSectionView.swift in Sources */,
@@ -554,7 +554,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Y7V766KDKR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Transmeme/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -583,7 +583,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Y7V766KDKR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Transmeme/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

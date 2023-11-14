@@ -38,7 +38,11 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         $0.clearButtonMode = .whileEditing
         $0.textColor = UIColor.black
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     let generationButton = UIButton().then {
         $0.setImage(UIImage(named: "dicgenButton"), for: .normal)
     }
