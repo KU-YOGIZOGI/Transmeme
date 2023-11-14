@@ -224,9 +224,20 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        generationLabel.text = dropdownOptions[indexPath.row]
+        let selectedOption = dropdownOptions[indexPath.row]
+        generationLabel.text = selectedOption
+        
+        switch selectedOption {
+        case "X세대":
+            getDicInfoForGeneration("(x)")
+        case "MZ세대":
+            getDicInfoForGeneration("(mz)")
+        default:
+            getDicInfo()
+        }
         toggleDropdown()
     }
+
 
     @objc func toggleDropdown() {
         UIView.animate(withDuration: 0.3) {
@@ -406,6 +417,41 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 let sortedEntries = try JSONDecoder().decode([DicInfo].self, from: data)
                 DispatchQueue.main.async {
                     self?.dictionaryEntries = sortedEntries
+                    self?.updateUIWithDictionaryEntries()
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    print("JSON 디코딩 실패: \(error)")
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func getDicInfoForGeneration(_ generation: String) {
+        let urlString = "https://transmeme.store/dictionary/generation?generation=\(generation)"
+        guard let url = URL(string: urlString) else {
+            print("유효하지 않은 URL입니다")
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard error == nil else {
+                DispatchQueue.main.async {
+                    print("오류: \(error!.localizedDescription)")
+                }
+                return
+            }
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    print("데이터가 없습니다")
+                }
+                return
+            }
+            do {
+                let generationEntries = try JSONDecoder().decode([DicInfo].self, from: data)
+                DispatchQueue.main.async {
+                    self?.dictionaryEntries = generationEntries
                     self?.updateUIWithDictionaryEntries()
                 }
             } catch {
