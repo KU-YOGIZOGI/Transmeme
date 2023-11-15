@@ -79,14 +79,14 @@ class Test8ViewController: UIViewController {
         paragraphStyle.alignment = .center
         paragraphStyle.lineSpacing = 6
 
-        let attrString = NSMutableAttributedString(string: "다음 중 '애빼시'의 뜻은\n무엇일까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        let attrString = NSMutableAttributedString(string: "다음 중 '완내스'의 뜻은\n무엇일까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         $0.attributedText = attrString
     }
     let quizButton = UIButton().then {
         $0.setImage(UIImage(named: "quizButton"), for: .normal)
     }
     let quizLabel = UILabel().then {
-        $0.text = "애교 빼면 시체"
+        $0.text = "새로운 중국요리 이름"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 18)
         $0.numberOfLines = 0
@@ -98,7 +98,7 @@ class Test8ViewController: UIViewController {
         $0.setImage(UIImage(named: "quizButton"), for: .normal)
     }
     let quizLabel2 = UILabel().then {
-        $0.text = "애를 빼시오"
+        $0.text = "완전 내 스타일"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 18)
         $0.numberOfLines = 0
@@ -292,7 +292,7 @@ class Test8ViewController: UIViewController {
         }
     }
     @objc func didTapquizButton(_ sender: Any) {
-        let addVC = TestCorrectViewController()
+        let addVC = TestIncorrectViewController()
         addVC.modalPresentationStyle = .overFullScreen
         present(addVC, animated: false) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
@@ -301,7 +301,7 @@ class Test8ViewController: UIViewController {
         }
     }
     @objc func didTapquizButton2(_ sender: Any) {
-        let addVC = TestIncorrectViewController()
+        let addVC = TestCorrectViewController()
         addVC.modalPresentationStyle = .overFullScreen
         present(addVC, animated: false) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {

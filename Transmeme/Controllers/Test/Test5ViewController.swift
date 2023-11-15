@@ -293,7 +293,7 @@ class Test5ViewController: UIViewController {
         }
     }
     @objc func didTapquizButton(_ sender: Any) {
-        let addVC = TestCorrectViewController()
+        let addVC = TestIncorrectViewController()
         addVC.modalPresentationStyle = .overFullScreen
         present(addVC, animated: false) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
@@ -302,7 +302,7 @@ class Test5ViewController: UIViewController {
         }
     }
     @objc func didTapquizButton2(_ sender: Any) {
-        let addVC = TestIncorrectViewController()
+        let addVC = TestCorrectViewController()
         addVC.modalPresentationStyle = .overFullScreen
         present(addVC, animated: false) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {

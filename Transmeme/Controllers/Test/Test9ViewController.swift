@@ -79,14 +79,14 @@ class Test9ViewController: UIViewController {
         paragraphStyle.alignment = .center
         paragraphStyle.lineSpacing = 6
 
-        let attrString = NSMutableAttributedString(string: "다음 중 '애빼시'의 뜻은\n무엇일까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        let attrString = NSMutableAttributedString(string: "다음 중 '갈비'의 뜻은\n무엇일까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         $0.attributedText = attrString
     }
     let quizButton = UIButton().then {
         $0.setImage(UIImage(named: "quizButton"), for: .normal)
     }
     let quizLabel = UILabel().then {
-        $0.text = "애교 빼면 시체"
+        $0.text = "갈수록 비호감"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 18)
         $0.numberOfLines = 0
@@ -98,7 +98,7 @@ class Test9ViewController: UIViewController {
         $0.setImage(UIImage(named: "quizButton"), for: .normal)
     }
     let quizLabel2 = UILabel().then {
-        $0.text = "애를 빼시오"
+        $0.text = "갑자기 갈비 먹고 싶다."
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 18)
         $0.numberOfLines = 0
