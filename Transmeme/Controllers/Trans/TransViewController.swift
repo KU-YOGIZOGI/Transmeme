@@ -206,7 +206,7 @@ class TransViewController: UIViewController {
         self.view.backgroundColor = .white
         self.topview.backgroundColor = UIColor(r:0, g:9, b:181)
         view.addSubview(topview)
-        topview.addSubview(titleLogo)
+//        topview.addSubview(titleLogo)
         topview.addSubview(welcomeLabel)
         topview.addSubview(guideLabel)
         topview.addSubview(bearIcon)
@@ -228,19 +228,19 @@ class TransViewController: UIViewController {
 
         
         topview.snp.makeConstraints{
-            $0.height.equalTo(280)
+            $0.height.equalTo(260)
             $0.top.leading.trailing.equalTo(0)
         }
         
-        titleLogo.snp.makeConstraints{
-            $0.top.equalTo(66)
-            $0.leading.equalTo(welcomeLabel.snp.leading)
-            $0.width.equalTo(34)
-            $0.height.equalTo(35)
-        }
+//        titleLogo.snp.makeConstraints{
+//            $0.top.equalTo(66)
+//            $0.leading.equalTo(welcomeLabel.snp.leading)
+//            $0.width.equalTo(34)
+//            $0.height.equalTo(35)
+//        }
         
         welcomeLabel.snp.makeConstraints{
-            $0.top.equalTo(128)
+            $0.top.equalTo(100)
             $0.leading.equalTo(41)
             $0.trailing.equalTo(-72)
             $0.height.equalTo(19)
@@ -344,7 +344,7 @@ class TransViewController: UIViewController {
             $0.top.equalTo(meanLabel.snp.bottom).offset(10)
             $0.leading.equalTo(barImage2)
             $0.trailing.equalTo(resultTextLabel.snp.trailing)
-            $0.height.equalTo(200)
+            $0.height.equalTo(220)
             
         }
         
@@ -373,13 +373,13 @@ class TransViewController: UIViewController {
             $0.top.equalTo(lineView3.snp.bottom).offset(8)
             $0.leading.equalTo(MeanView.snp.leading).offset(10)
             $0.trailing.equalTo(MeanView.snp.trailing).offset(-5)
-            $0.height.equalTo(65)
+            $0.height.equalTo(75)
         }
         
         exampleSection.snp.makeConstraints {
             $0.top.equalTo(meaningSection.snp.bottom).offset(5)
             $0.leading.trailing.equalTo(meaningSection)
-            $0.height.equalTo(45)
+            $0.height.equalTo(55)
             
         }
         
