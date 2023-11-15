@@ -89,8 +89,9 @@ class TestEndViewController: UIViewController {
     }
     
     @objc func didTapcloseButton() {
+        
         let addVC = Test1ViewController()
         addVC.modalPresentationStyle = .overFullScreen
-        present(addVC, animated: false, completion: nil)
+        self.navigationController?.pushViewController(addVC, animated: true)
     }
 }
