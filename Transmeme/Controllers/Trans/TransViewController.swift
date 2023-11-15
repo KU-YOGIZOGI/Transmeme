@@ -187,7 +187,7 @@ class TransViewController: UIViewController {
     }
     let slangWordGenLabel = UILabel().then {
         $0.font = UIFont(name: "GmarketSansMedium", size: 10)
-        $0.textColor = UIColor(r: 152, g: 152, b: 152)
+        $0.textColor = UIColor(r: 0, g: 9, b: 181)
         
     }
     
@@ -344,7 +344,7 @@ class TransViewController: UIViewController {
             $0.top.equalTo(meanLabel.snp.bottom).offset(10)
             $0.leading.equalTo(barImage2)
             $0.trailing.equalTo(resultTextLabel.snp.trailing)
-            $0.height.equalTo(220)
+            $0.height.equalTo(215)
             
         }
         
@@ -379,7 +379,7 @@ class TransViewController: UIViewController {
         exampleSection.snp.makeConstraints {
             $0.top.equalTo(meaningSection.snp.bottom).offset(5)
             $0.leading.trailing.equalTo(meaningSection)
-            $0.height.equalTo(55)
+            $0.height.equalTo(50)
             
         }
         
