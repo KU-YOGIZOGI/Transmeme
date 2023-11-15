@@ -127,7 +127,7 @@ class Test9ViewController: UIViewController {
         paragraphStyle.alignment = .center
         paragraphStyle.lineSpacing = 4
 
-        let attrString = NSMutableAttributedString(string: "ex. 너는 애빼시야. 진짜 귀여워.", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        let attrString = NSMutableAttributedString(string: "ex. 걔 진짜 갈비야. 어떻게 갈수록 이미지가 나빠져?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         $0.attributedText = attrString
     }
     let nextButton = UIButton().then {
@@ -282,6 +282,7 @@ class Test9ViewController: UIViewController {
         hintLabel2.snp.makeConstraints { make in
             make.top.equalTo(hintView.snp.top).offset(38)
             make.centerX.equalTo(hintView)
+            make.width.equalTo(176)
         }
         nextButton.snp.makeConstraints { make in
             make.width.equalTo(60)

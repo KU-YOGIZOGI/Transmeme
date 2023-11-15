@@ -86,7 +86,7 @@ class Test5ViewController: UIViewController {
         $0.setImage(UIImage(named: "quizButton"), for: .normal)
     }
     let quizLabel = UILabel().then {
-        $0.text = "애교 빼면 시체"
+        $0.text = "별도 다 따다 줄 기세"
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansMedium", size: 18)
         $0.numberOfLines = 0
@@ -121,13 +121,13 @@ class Test5ViewController: UIViewController {
     let hintLabel2 = UILabel().then {
         $0.textColor = UIColor.black
         $0.font = UIFont(name: "GmarketSansLight", size: 15)
-        $0.numberOfLines = 2
+        $0.numberOfLines = 0
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         paragraphStyle.lineSpacing = 4
 
-        let attrString = NSMutableAttributedString(string: "ex. 너는 애빼시야. 진짜 귀여워.", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        let attrString = NSMutableAttributedString(string: "ex. 아샷추? 진짜 별다줄이다. 세종대왕님 노하셔", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         $0.attributedText = attrString
     }
     let nextButton = UIButton().then {
@@ -283,6 +283,7 @@ class Test5ViewController: UIViewController {
         hintLabel2.snp.makeConstraints { make in
             make.top.equalTo(hintView.snp.top).offset(38)
             make.centerX.equalTo(hintView)
+            make.width.equalTo(176)
         }
         nextButton.snp.makeConstraints { make in
             make.width.equalTo(60)

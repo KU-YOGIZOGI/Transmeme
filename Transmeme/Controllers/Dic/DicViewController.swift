@@ -237,13 +237,13 @@ class DicViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let name = UILabel().then {
             $0.text = entry.name
             $0.textColor = UIColor.black
-            $0.font = UIFont(name: "GmarketSansMedium", size: 15)
+            $0.font = UIFont(name: "GmarketSansBold", size: 15)
             $0.adjustsFontSizeToFitWidth = true
         }
         let generation = UILabel().then {
             $0.text = entry.generation
             $0.textColor = UIColor(red: 125/255.0, green: 125/255.0, blue: 125/255.0, alpha: 1.0)
-            $0.font = UIFont(name: "GmarketSansMedium", size: 15)
+            $0.font = UIFont(name: "GmarketSansMedium", size: 13)
             $0.adjustsFontSizeToFitWidth = true
         }
         let script = UILabel().then {
