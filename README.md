@@ -2,11 +2,11 @@
 Transmeme iOS 
 <p>#당신의 세대가 스며든다 #세대통합을 위한 밈 번역기 </p>
 <p align="center">
-  <img src="https://github.com/KU-YOGIZOGI/Transmeme/assets/68605075/9e787ac4-bf8a-4082-a5b2-536993c07011)https://github.com/KU-YOGIZOGI/Transmeme/assets/68605075/9e787ac4-bf8a-4082-a5b2-536993c07011">
+  <img src="https://github.com/KU-YOGIZOGI/Transmeme/assets/68605075/406de47b-2d40-4861-b0c6-d662b07d4c8b">
 </p>
 
 <p align="center">
-  <img src="https://github.com/KU-YOGIZOGI/Transmeme/assets/68605075/2ff8932e-6c5a-4e6f-bc49-8e36741488a0">
+  <img src="https://github.com/KU-YOGIZOGI/Transmeme/assets/68605075/108d7e8c-62cd-42c8-8cc4-9de8ef03bfbc">
 </p>
 
 <p align="center">
@@ -14,9 +14,11 @@ Transmeme iOS
 </p>
 
 <p align="center">
-  <img src="https://github.com/KU-YOGIZOGI/Transmeme/assets/68605075/fcb49921-0dc6-4450-92ed-a78f88d52f5f">
+  <img src="https://github.com/KU-YOGIZOGI/Transmeme/assets/68605075/6b3616ce-bed6-4549-ae52-2a301c3269a6">
 </p>
 
 <p align="center">
-  <img src="https://github.com/KU-YOGIZOGI/Transmeme/assets/68605075/f4a2044d-36fe-4150-9058-a1ac2a435998">
+  <img src="https://github.com/KU-YOGIZOGI/Transmeme/assets/68605075/92561103-8657-48c4-8b59-8b3775eb4b7d">
 </p>
+
+
