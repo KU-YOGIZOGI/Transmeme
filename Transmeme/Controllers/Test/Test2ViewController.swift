@@ -134,7 +134,6 @@ class Test2ViewController: UIViewController {
         $0.setTitle("다음 >", for: .normal)
         $0.titleLabel?.font = UIFont(name: "GmarketSansMedium", size: 20)
         $0.setTitleColor(UIColor.white, for: .normal)
-   
     }
     let correctImageView = UIImageView().then {
         $0.image = UIImage(named: "correct")

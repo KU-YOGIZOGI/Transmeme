@@ -26,18 +26,26 @@ class TransViewController: UIViewController {
         $0.font = UIFont(name: "GmarketSansLight", size: 19)
     }
     
+    
     let guideLabel =  UILabel().then {
         $0.text = "트랜스밈이\n알려드릴게요!"
         $0.textColor = .white
         $0.numberOfLines = 2
-        $0.font = UIFont(name: "GmarketSansBold", size: 34)
-        
+        $0.font = UIFont(name: "GmarketSansMedium", size: 34)
+    
         let underlineColor = UIColor(r: 58,g: 125,b: 253)
         
         let attributedString = NSMutableAttributedString(string: $0.text!)
         attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.thick.rawValue, range: NSRange(location: 0, length: attributedString.length))
         attributedString.addAttribute(.underlineColor, value: underlineColor, range: NSRange(location: 0, length: attributedString.length))
+        
         $0.attributedText = attributedString
+        
+        if let range = $0.text?.range(of: "트랜스밈") {
+            let nsRange = NSRange(range, in: $0.text!)
+            $0.setBoldFont("GmarketSansBold", range: nsRange)
+        }
+        
         $0.sizeToFit()
         
     }
@@ -223,7 +231,6 @@ class TransViewController: UIViewController {
         view.addSubview(barImage2)
         view.addSubview(meanLabel)
         self.view.addSubview(MeanView)
-        //  MeanTextView.text = "단어를 검색하면 해설이 나와요!"
         view.addSubview(lineView3)
 
         
