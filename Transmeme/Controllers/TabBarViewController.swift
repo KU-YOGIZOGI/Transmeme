@@ -29,37 +29,44 @@ class TabBarViewController: UITabBarController {
         let transVC = TransViewController()
         let testVC = Test1ViewController()
         let dicVC = DicViewController()
+        let mzTestVC = MzTestViewController()
         
         transVC.title = "홈"
         testVC.title = "시험"
         dicVC.title = "도감"
+        mzTestVC.title = "MZTI"
         
         transVC.tabBarItem.image = UIImage(named: "homeIconx1")
         testVC.tabBarItem.image = UIImage(named: "testIconx1")
         dicVC.tabBarItem.image = UIImage(named: "dicIconx1")
+        mzTestVC.tabBarItem.image = UIImage(named: "mzExamx1")
         
         transVC.tabBarItem.setTitleTextAttributes(attributes, for: .normal)
         testVC.tabBarItem.setTitleTextAttributes(attributes, for: .normal)
         dicVC.tabBarItem.setTitleTextAttributes(attributes, for: .normal)
+        mzTestVC.tabBarItem.setTitleTextAttributes(attributes, for: .normal)
         
         // 아이콘 크기 조절
         transVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         testVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         dicVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        mzTestVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         
         
         //navigationController의 root view 설정
         let navTrans = UINavigationController(rootViewController: transVC)
         let navTest = UINavigationController(rootViewController: testVC)
         let navDic = UINavigationController(rootViewController: dicVC)
+        let navMz = UINavigationController(rootViewController: mzTestVC)
         
         navTrans.isNavigationBarHidden = true
         navTest.isNavigationBarHidden = true
         navDic.isNavigationBarHidden = true
+        navMz.isNavigationBarHidden = true
         
         navigationController?.isNavigationBarHidden = true
         
-        setViewControllers([navTrans,navTest,navDic], animated: false)
+        setViewControllers([navTrans,navTest,navDic,navMz], animated: false)
         
     }
 }

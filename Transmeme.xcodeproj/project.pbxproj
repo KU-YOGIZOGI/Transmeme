@@ -44,6 +44,7 @@
 		7A84B48A2AB7E97700845EF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B4892AB7E97700845EF4 /* AppDelegate.swift */; };
 		7A84B48C2AB7E97700845EF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */; };
 		7A84B4932AB7E97800845EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A84B4922AB7E97800845EF4 /* Assets.xcassets */; };
+		7A934A142B2C7FA600CC0BD4 /* MzTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A934A132B2C7FA600CC0BD4 /* MzTestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7A84B4922AB7E97800845EF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A84B4972AB7E97800845EF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A934A132B2C7FA600CC0BD4 /* MzTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MzTestViewController.swift; sourceTree = "<group>"; };
 		B0BBAE91CE5BCA5E39EA61E6 /* Pods_Transmeme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transmeme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				7A695C4B2AFA9CCA00A30281 /* TabBarViewController.swift */,
+				7A934A122B2C7F8E00CC0BD4 /* MzTest */,
 				7A695C532AFB943C00A30281 /* Trans */,
 				7A695C552AFB945600A30281 /* Test */,
 				7A695C542AFB944700A30281 /* Dic */,
@@ -275,6 +278,14 @@
 				7A70BE332AF90D6B008BC964 /* Fonts */,
 			);
 			path = Transmeme;
+			sourceTree = "<group>";
+		};
+		7A934A122B2C7F8E00CC0BD4 /* MzTest */ = {
+			isa = PBXGroup;
+			children = (
+				7A934A132B2C7FA600CC0BD4 /* MzTestViewController.swift */,
+			);
+			path = MzTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +433,7 @@
 				1A061DB62B021269006E5753 /* Test8ViewController.swift in Sources */,
 				7A70BE262AF6648D008BC964 /* InsetTextField.swift in Sources */,
 				1A061DAE2B021049006E5753 /* Test4ViewController.swift in Sources */,
+				7A934A142B2C7FA600CC0BD4 /* MzTestViewController.swift in Sources */,
 				1AF7C93D2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift in Sources */,
 				1A061DBE2B03AD96006E5753 /* UILabel+Padding+Extension.swift in Sources */,
 				1A061DB42B021263006E5753 /* Test7ViewController.swift in Sources */,
