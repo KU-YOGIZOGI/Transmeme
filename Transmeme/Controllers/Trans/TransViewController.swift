@@ -153,8 +153,9 @@ class TransViewController: UIViewController {
         $0.titleLabel?.font = UIFont(name: "GmarketSansMedium", size: 11)
         $0.layer.cornerRadius = 5 // 테두리 둥글기 설정
         $0.addTarget(self, action: #selector(transBtnTapped), for: .touchUpInside)
-
     }
+    
+   
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -206,7 +207,6 @@ class TransViewController: UIViewController {
         self.view.backgroundColor = .white
         self.topview.backgroundColor = UIColor(r:0, g:9, b:181)
         view.addSubview(topview)
-//        topview.addSubview(titleLogo)
         topview.addSubview(welcomeLabel)
         topview.addSubview(guideLabel)
         topview.addSubview(bearIcon)
@@ -223,7 +223,6 @@ class TransViewController: UIViewController {
         view.addSubview(barImage2)
         view.addSubview(meanLabel)
         self.view.addSubview(MeanView)
-        //  MeanTextView.text = "단어를 검색하면 해설이 나와요!"
         view.addSubview(lineView3)
 
         
@@ -231,14 +230,7 @@ class TransViewController: UIViewController {
             $0.height.equalTo(260)
             $0.top.leading.trailing.equalTo(0)
         }
-        
-//        titleLogo.snp.makeConstraints{
-//            $0.top.equalTo(66)
-//            $0.leading.equalTo(welcomeLabel.snp.leading)
-//            $0.width.equalTo(34)
-//            $0.height.equalTo(35)
-//        }
-        
+
         welcomeLabel.snp.makeConstraints{
             $0.top.equalTo(100)
             $0.leading.equalTo(41)

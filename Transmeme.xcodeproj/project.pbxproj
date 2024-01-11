@@ -19,7 +19,6 @@
 		1A7450042AF669DF007B22B2 /* PreviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7450032AF669DF007B22B2 /* PreviewExtension.swift */; };
 		1A7450062AF66B39007B22B2 /* DicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7450052AF66B39007B22B2 /* DicViewController.swift */; };
 		1AE474A72AFFC95800656093 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE474A62AFFC95800656093 /* Splash.png */; };
-		1AF7C9392AFAC04300D7AA47 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C9372AFA9A0700D7AA47 /* Test1ViewController.swift */; };
 		1AF7C93B2AFB7B2400D7AA47 /* TestCorrectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C93A2AFB7B2400D7AA47 /* TestCorrectViewController.swift */; };
 		1AF7C93D2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C93C2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift */; };
 		1AF7C9432AFBCED400D7AA47 /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C9422AFBCED400D7AA47 /* Test2ViewController.swift */; };
@@ -43,7 +42,8 @@
 		7A84B48A2AB7E97700845EF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B4892AB7E97700845EF4 /* AppDelegate.swift */; };
 		7A84B48C2AB7E97700845EF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */; };
 		7A84B4932AB7E97800845EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A84B4922AB7E97800845EF4 /* Assets.xcassets */; };
-		FEB5DE30DB2691887478B5B1 /* Pods_Transmeme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A2862D8EE4CA301A1430A5 /* Pods_Transmeme.framework */; };
+		7AA565D82B4FB64B00E351D4 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF7C9372AFA9A0700D7AA47 /* Test1ViewController.swift */; };
+		DA5651A4064AC53CFB4B18B7 /* Pods_Transmeme.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B23BE79CE0789A90C74B8646 /* Pods_Transmeme.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,8 @@
 		1AF7C93C2AFB7C3F00D7AA47 /* TestIncorrectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIncorrectViewController.swift; sourceTree = "<group>"; };
 		1AF7C9422AFBCED400D7AA47 /* Test2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2ViewController.swift; sourceTree = "<group>"; };
 		1AF7C9442AFBD27300D7AA47 /* Test3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3ViewController.swift; sourceTree = "<group>"; };
-		760E1B8284D49ABFD4716257 /* Pods-Transmeme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmeme.debug.xcconfig"; path = "Target Support Files/Pods-Transmeme/Pods-Transmeme.debug.xcconfig"; sourceTree = "<group>"; };
+		29AF7E2C0D6794A2298C8B76 /* Pods-Transmeme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmeme.debug.xcconfig"; path = "Target Support Files/Pods-Transmeme/Pods-Transmeme.debug.xcconfig"; sourceTree = "<group>"; };
+		695C94D7ACEEDF4C822FD387 /* Pods-Transmeme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmeme.release.xcconfig"; path = "Target Support Files/Pods-Transmeme/Pods-Transmeme.release.xcconfig"; sourceTree = "<group>"; };
 		7A695C4B2AFA9CCA00A30281 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		7A695C4F2AFAA5B700A30281 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		7A695C5C2AFB97A100A30281 /* TransModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransModel.swift; sourceTree = "<group>"; };
@@ -86,8 +87,7 @@
 		7A84B48B2AB7E97700845EF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7A84B4922AB7E97800845EF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A84B4972AB7E97800845EF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0A2862D8EE4CA301A1430A5 /* Pods_Transmeme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transmeme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D503FA874419A985EF31532C /* Pods-Transmeme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transmeme.release.xcconfig"; path = "Target Support Files/Pods-Transmeme/Pods-Transmeme.release.xcconfig"; sourceTree = "<group>"; };
+		B23BE79CE0789A90C74B8646 /* Pods_Transmeme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Transmeme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEB5DE30DB2691887478B5B1 /* Pods_Transmeme.framework in Frameworks */,
+				DA5651A4064AC53CFB4B18B7 /* Pods_Transmeme.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +105,8 @@
 		7A3AE934AC53726F9B094543 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				760E1B8284D49ABFD4716257 /* Pods-Transmeme.debug.xcconfig */,
-				D503FA874419A985EF31532C /* Pods-Transmeme.release.xcconfig */,
+				29AF7E2C0D6794A2298C8B76 /* Pods-Transmeme.debug.xcconfig */,
+				695C94D7ACEEDF4C822FD387 /* Pods-Transmeme.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -240,7 +240,7 @@
 				7A84B4882AB7E97700845EF4 /* Transmeme */,
 				7A84B4872AB7E97700845EF4 /* Products */,
 				7A3AE934AC53726F9B094543 /* Pods */,
-				C0F83F81639BC3B601D13757 /* Frameworks */,
+				A599925A2D05AD30E3EBAB38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -269,10 +269,10 @@
 			path = Transmeme;
 			sourceTree = "<group>";
 		};
-		C0F83F81639BC3B601D13757 /* Frameworks */ = {
+		A599925A2D05AD30E3EBAB38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A0A2862D8EE4CA301A1430A5 /* Pods_Transmeme.framework */,
+				B23BE79CE0789A90C74B8646 /* Pods_Transmeme.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -284,11 +284,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A84B49A2AB7E97800845EF4 /* Build configuration list for PBXNativeTarget "Transmeme" */;
 			buildPhases = (
-				7D2AE0A31871C3FD5F54C2BB /* [CP] Check Pods Manifest.lock */,
+				B2D5F1AEB0025B36F65A0CCE /* [CP] Check Pods Manifest.lock */,
 				7A84B4822AB7E97700845EF4 /* Sources */,
 				7A84B4832AB7E97700845EF4 /* Frameworks */,
 				7A84B4842AB7E97700845EF4 /* Resources */,
-				6EACB23F80348233ABEB029F /* [CP] Embed Pods Frameworks */,
+				D9AD2C4CE37E26C5D1F5FA2B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -349,24 +349,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6EACB23F80348233ABEB029F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Transmeme/Pods-Transmeme-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Transmeme/Pods-Transmeme-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Transmeme/Pods-Transmeme-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7D2AE0A31871C3FD5F54C2BB /* [CP] Check Pods Manifest.lock */ = {
+		B2D5F1AEB0025B36F65A0CCE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -388,6 +371,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D9AD2C4CE37E26C5D1F5FA2B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Transmeme/Pods-Transmeme-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Transmeme/Pods-Transmeme-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Transmeme/Pods-Transmeme-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -395,13 +395,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AA565D82B4FB64B00E351D4 /* Test1ViewController.swift in Sources */,
 				1AF7C9452AFBD27300D7AA47 /* Test3ViewController.swift in Sources */,
 				1AF7C9432AFBCED400D7AA47 /* Test2ViewController.swift in Sources */,
 				1A7450042AF669DF007B22B2 /* PreviewExtension.swift in Sources */,
 				7A695C4C2AFA9CCA00A30281 /* TabBarViewController.swift in Sources */,
 				7A695C6C2AFFBFDC00A30281 /* TransSectionViewWithTwoLabels.swift in Sources */,
-				1AF7C9392AFAC04300D7AA47 /* Test1ViewController.swift in Sources */,
-				1AF7C9392AFAC04300D7AA47 /* Test1ViewController.swift in Sources */,
 				1AF7C93B2AFB7B2400D7AA47 /* TestCorrectViewController.swift in Sources */,
 				7A695C5D2AFB97A100A30281 /* TransModel.swift in Sources */,
 				7A70BE242AF6646F008BC964 /* UITextField+Extenstion.swift in Sources */,
@@ -548,7 +547,7 @@
 		};
 		7A84B49B2AB7E97800845EF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 760E1B8284D49ABFD4716257 /* Pods-Transmeme.debug.xcconfig */;
+			baseConfigurationReference = 29AF7E2C0D6794A2298C8B76 /* Pods-Transmeme.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -580,7 +579,7 @@
 		};
 		7A84B49C2AB7E97800845EF4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D503FA874419A985EF31532C /* Pods-Transmeme.release.xcconfig */;
+			baseConfigurationReference = 695C94D7ACEEDF4C822FD387 /* Pods-Transmeme.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
