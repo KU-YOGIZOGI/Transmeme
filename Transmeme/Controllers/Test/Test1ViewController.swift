@@ -189,11 +189,11 @@ class Test1ViewController: UIViewController {
         logoImage.snp.makeConstraints { make in
             make.width.equalTo(89)
             make.height.equalTo(91)
-            make.top.equalTo(topLabel.snp.bottom).offset(50)
+            make.top.equalTo(topLabel.snp.bottom).offset(35)
             make.leading.equalTo(safeArea.snp.leading).offset(65)
         }
         mzlabel.snp.makeConstraints { make in
-            make.top.equalTo(topLabel.snp.bottom).offset(70)
+            make.top.equalTo(topLabel.snp.bottom).offset(55)
             make.leading.equalTo(logoImage.snp.trailing).offset(13)
         }
         mzlabel2.snp.makeConstraints { make in
@@ -203,7 +203,7 @@ class Test1ViewController: UIViewController {
         labelHighlight.snp.makeConstraints { make in
             make.width.equalTo(144)
             make.height.equalTo(9)
-            make.top.equalTo(topLabel.snp.bottom).offset(84)
+            make.top.equalTo(topLabel.snp.bottom).offset(69)
             make.leading.equalTo(logoImage.snp.trailing).offset(10)
         }
     }

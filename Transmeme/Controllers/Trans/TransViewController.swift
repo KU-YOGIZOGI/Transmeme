@@ -23,14 +23,14 @@ class TransViewController: UIViewController {
     let welcomeLabel =  UILabel().then {
         $0.text = "트랜스밈에 오신걸 환영합니다!"
         $0.textColor = .white
-        $0.font = UIFont(name: "GmarketSansLight", size: 19)
+        $0.font = UIFont(name: "GmarketSansLight", size: 15)
     }
     
     let guideLabel =  UILabel().then {
         $0.text = "트랜스밈이\n알려드릴게요!"
         $0.textColor = .white
         $0.numberOfLines = 2
-        $0.font = UIFont(name: "GmarketSansBold", size: 34)
+        $0.font = UIFont(name: "GmarketSansBold", size: 28)
         
         let underlineColor = UIColor(r: 58,g: 125,b: 253)
         
@@ -227,25 +227,25 @@ class TransViewController: UIViewController {
 
         
         topview.snp.makeConstraints{
-            $0.height.equalTo(260)
+            $0.height.equalTo(190)
             $0.top.leading.trailing.equalTo(0)
         }
 
         welcomeLabel.snp.makeConstraints{
-            $0.top.equalTo(100)
+            $0.top.equalTo(70)
             $0.leading.equalTo(41)
             $0.trailing.equalTo(-72)
             $0.height.equalTo(19)
         }
         guideLabel.snp.makeConstraints{
-            $0.top.equalTo(welcomeLabel.snp.bottom).offset(33)
+            $0.top.equalTo(welcomeLabel.snp.bottom).offset(20)
             $0.leading.equalTo(43)
             $0.trailing.equalTo(-140)
             $0.bottom.equalTo(-22)
         }
         
         bearIcon.snp.makeConstraints{
-            $0.top.equalTo(welcomeLabel.snp.bottom).offset(20)
+            $0.top.equalTo(welcomeLabel.snp.bottom)
             $0.leading.equalTo(guideLabel.snp.trailing).offset(10)
             $0.height.equalTo(97)
             $0.width.equalTo(95)
@@ -253,7 +253,7 @@ class TransViewController: UIViewController {
         
         titleLabel.snp.makeConstraints{
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(topview.snp.bottom).offset(18)
+            $0.top.equalTo(topview.snp.bottom).offset(25)
             $0.height.equalTo(25)
         }
         

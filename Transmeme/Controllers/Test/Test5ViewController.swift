@@ -187,11 +187,11 @@ class Test5ViewController: UIViewController {
         logoImage.snp.makeConstraints { make in
             make.width.equalTo(89)
             make.height.equalTo(91)
-            make.top.equalTo(topLabel.snp.bottom).offset(50)
+            make.top.equalTo(topLabel.snp.bottom).offset(35)
             make.leading.equalTo(safeArea.snp.leading).offset(65)
         }
         mzlabel.snp.makeConstraints { make in
-            make.top.equalTo(topLabel.snp.bottom).offset(70)
+            make.top.equalTo(topLabel.snp.bottom).offset(55)
             make.leading.equalTo(logoImage.snp.trailing).offset(13)
         }
         mzlabel2.snp.makeConstraints { make in
@@ -201,7 +201,7 @@ class Test5ViewController: UIViewController {
         labelHighlight.snp.makeConstraints { make in
             make.width.equalTo(144)
             make.height.equalTo(9)
-            make.top.equalTo(topLabel.snp.bottom).offset(84)
+            make.top.equalTo(topLabel.snp.bottom).offset(69)
             make.leading.equalTo(logoImage.snp.trailing).offset(10)
         }
     }
@@ -212,7 +212,7 @@ class Test5ViewController: UIViewController {
         quizView.snp.makeConstraints { make in
             make.width.equalTo(350)
             make.height.equalTo(500)
-            make.top.equalTo(safeArea.snp.top).offset(175)
+            make.top.equalTo(logoImage.snp.bottom)
             make.centerX.equalTo(safeArea)
         }
         quiznumLabel.snp.makeConstraints { make in
